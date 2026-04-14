@@ -557,7 +557,7 @@ const App = () => {
         </button>
 
         <div className="mt-20 pt-10 border-t border-black/5 w-full max-w-lg">
-          <p className="text-[8px] font-bold tracking-[0.5em] uppercase opacity-30">© 2024 Tày Heritage Multimedia Project</p>
+          <p className="text-[8px] font-bold tracking-[0.5em] uppercase opacity-30">© 2026 Tày Heritage Multimedia Project</p>
         </div>
       </footer>
 
