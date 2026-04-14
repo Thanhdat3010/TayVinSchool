@@ -1276,7 +1276,7 @@ export const dictionaryData = [
                 "word": "Páo còn",
                 "meaning": "Ném còn",
                 "description": "trò chơi dân gian cầu may.",
-                "audio": "Ném còn.m4a"
+                "audio": "Ném còn_2.m4a"
               },
               {
                 "word": "Lượn then",
