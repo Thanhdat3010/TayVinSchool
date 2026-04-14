@@ -13,20 +13,32 @@ import {
 } from 'lucide-react';
 import { dictionaryData } from './data/dictionaryData';
 
+// ─── Assets ──────────────────────────────────────────────────────────────────
+import logoImg from './assets/logotudientay.png';
+import image1 from './assets/image1.png';
+import image2 from './assets/image2.png';
+import image3 from './assets/image3.png';
+import image4 from './assets/image4.png';
+import image5 from './assets/image5.png';
+import image6 from './assets/image6.png';
+
 // ─── Map chapters to images + palette ────────────────────────────────────────
 const CHAPTER_META = [
   {
-    image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=2000',
+    image: image1,
+    exploreImage: image4,
     accent: '#f59e0b',
     tag: 'Đời Sống & Sản Xuất',
   },
   {
-    image: 'https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&q=80&w=2000',
+    image: image2,
+    exploreImage: image5,
     accent: '#a78bfa',
     tag: 'Lễ Hội & Văn Hoá',
   },
   {
-    image: 'https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&q=80&w=2000',
+    image: image3,
+    exploreImage: image6,
     accent: '#34d399',
     tag: 'Gia Đình & Huyết Thống',
   },
@@ -162,8 +174,23 @@ const ChapterModal = ({ chapter, meta, onClose }) => {
 
       {/* Panel */}
       <div className="relative z-10 ml-auto w-full md:w-[55vw] h-full bg-[#080b10] flex flex-col shadow-2xl">
-        {/* Header image strip */}
-        <div className="relative h-52 flex-shrink-0 overflow-hidden">
+        {/* Explore Background Image Layer */}
+        {meta.exploreImage && (
+          <div className="absolute inset-0 z-0 opacity-15 pointer-events-none">
+            <img 
+              src={meta.exploreImage} 
+              alt="" 
+              className="w-full h-full object-cover grayscale opacity-50"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#080b10] via-transparent to-[#080b10]" />
+            <div className="absolute inset-0 bg-black/40" />
+          </div>
+        )}
+
+        {/* Content Wrapper */}
+        <div className="relative z-10 flex flex-col h-full">
+          {/* Header image strip */}
+          <div className="relative h-56 flex-shrink-0 overflow-hidden">
           <img
             src={meta.image}
             alt={chapter.title}
@@ -176,11 +203,11 @@ const ChapterModal = ({ chapter, meta, onClose }) => {
           >
             <X size={22} />
           </button>
-          <div className="absolute bottom-6 left-8">
-            <p className="text-xs font-bold tracking-[0.3em] uppercase mb-1" style={{ color: meta.accent }}>
+          <div className="absolute bottom-10 left-8">
+            <p className="text-xs font-bold tracking-[0.4em] uppercase mb-2" style={{ color: meta.accent }}>
               {meta.tag}
             </p>
-            <h2 className="text-3xl font-serif text-white">{chapter.title}</h2>
+            <h2 className="text-4xl font-serif text-white tracking-wide">{chapter.title}</h2>
           </div>
         </div>
 
@@ -234,6 +261,7 @@ const ChapterModal = ({ chapter, meta, onClose }) => {
         </div>
       </div>
     </div>
+  </div>
   );
 };
 
@@ -424,11 +452,12 @@ const App = () => {
 
       {/* ── Nav ── */}
       <nav className="fixed top-0 left-0 w-full z-50 px-8 md:px-12 py-6 flex justify-between items-center pointer-events-none">
-        <div className="pointer-events-auto flex items-center gap-3 group cursor-pointer">
-          <div className="w-9 h-9 bg-white text-black rounded-full flex items-center justify-center group-hover:rotate-180 transition-transform duration-500">
-            <Compass size={18} />
+        <div className="pointer-events-auto flex items-center gap-4 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <img src={logoImg} alt="Tày Logo" className="h-10 w-auto group-hover:scale-105 transition-transform duration-500 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]" />
+          <div className="flex flex-col">
+            <span className="font-serif italic text-xl tracking-wide text-white group-hover:text-yellow-400 transition-colors">Tày Heritage</span>
+            <span className="text-[8px] font-bold tracking-[0.3em] uppercase text-white/40">Multimedia Dictionary</span>
           </div>
-          <span className="font-serif italic text-lg tracking-wide">Tày Heritage</span>
         </div>
 
         <div className="pointer-events-auto flex items-center gap-6">
@@ -445,12 +474,12 @@ const App = () => {
       {/* ── Hero ── */}
       <section className="relative h-screen w-full flex flex-col items-center justify-center text-center px-6 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/50 z-10" />
+          <div className="absolute inset-0 bg-black/60 z-10" />
           <img
-            src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&q=80&w=2000"
+            src={image1}
             alt="Rừng Tây Bắc"
             className="w-full h-full object-cover"
-            style={{ transform: `translateY(${scrollY * 0.35}px)` }}
+            style={{ transform: `scale(1.1) translateY(${scrollY * 0.15}px)` }}
           />
         </div>
 

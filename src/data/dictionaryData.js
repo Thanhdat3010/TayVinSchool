@@ -130,7 +130,7 @@ export const dictionaryData = [
                 "word": "Sang khấu",
                 "meaning": "Kho thóc / chỗ để lương thực",
                 "description": "nơi cất giữ thóc gạo.",
-                "audio": "Kho thóc / chỗ để lương thực.m4a"
+                "audio": "Kho thóc.m4a"
               }
             ]
           }
