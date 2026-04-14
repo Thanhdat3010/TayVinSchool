@@ -1057,7 +1057,7 @@ export const dictionaryData = [
                 "word": "Tặt bàn phạ",
                 "meaning": "Cúng trời",
                 "description": "cầu phúc.",
-                "audio": "Cúng trời.m4a"
+                "audio": "Cầu phúc.m4a"
               },
               {
                 "word": "Tặt bàn tâm",
@@ -1832,7 +1832,7 @@ export const dictionaryData = [
                 "word": "Pa",
                 "meaning": "Bố / cha",
                 "description": "người sinh ra và nuôi dưỡng con cái.",
-                "audio": "Bố / cha.m4a"
+                "audio": "Bốcha.m4a"
               },
               {
                 "word": "Me̱",
@@ -1854,9 +1854,9 @@ export const dictionaryData = [
               },
               {
                 "word": "Lục slao",
-                "meaning": "Con gái.",
+                "meaning": "Con gái",
                 "description": "",
-                "audio": "Con gái..m4a"
+                "audio": "Con gái.m4a"
               },
               {
                 "word": "Lục xo",
@@ -1873,7 +1873,7 @@ export const dictionaryData = [
                 "word": "Chựa",
                 "meaning": "Cụ, kị",
                 "description": "chỉ thế hệ trên ông bà trong gia đình.",
-                "audio": "Cụ, kị.m4a"
+                "audio": "Cụ kị.m4a"
               },
               {
                 "word": "Pú",

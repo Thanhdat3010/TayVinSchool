@@ -4,7 +4,6 @@ import {
   ChevronRight,
   X,
   ArrowDown,
-  Compass,
   Wind,
   Search,
   BookOpen,
@@ -52,13 +51,13 @@ const WordItem = ({ wordData }) => {
 
   const handlePlay = useCallback((e) => {
     e.stopPropagation();
-    
+
     if (!wordData.audio) return;
 
     const nfcFilename = wordData.audio.normalize('NFC');
     const nfdFilename = wordData.audio.normalize('NFD');
     const path = `${process.env.PUBLIC_URL || ''}/audio/${encodeURIComponent(nfcFilename)}`;
-    
+
     const playAudio = (audioPath, fallbackPath = null) => {
       const audio = new Audio(audioPath);
       audioRef.current = audio; // Store for pausing later
@@ -72,7 +71,7 @@ const WordItem = ({ wordData }) => {
           setIsPlaying(false);
         }
       };
-      
+
       audio.play().catch((err) => {
         console.error("Playback failed:", err);
         setIsPlaying(false);
@@ -86,7 +85,7 @@ const WordItem = ({ wordData }) => {
     } else {
       setIsPlaying(true);
       // Try NFC path first, then NFD as fallback
-      const fallbackPath = nfcFilename !== nfdFilename 
+      const fallbackPath = nfcFilename !== nfdFilename
         ? `${process.env.PUBLIC_URL || ''}/audio/${encodeURIComponent(nfdFilename)}`
         : null;
       playAudio(path, fallbackPath);
@@ -107,11 +106,10 @@ const WordItem = ({ wordData }) => {
         </div>
         <button
           onClick={handlePlay}
-          className={`flex-shrink-0 w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-300 ${
-            isPlaying
+          className={`flex-shrink-0 w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-300 ${isPlaying
               ? 'bg-yellow-500 border-yellow-500 text-black animate-pulse'
               : 'border-white/10 text-white/50 hover:bg-yellow-500 hover:border-yellow-500 hover:text-black'
-          }`}
+            }`}
           title="Nghe phát âm"
         >
           {isPlaying ? <VolumeX size={18} /> : <Volume2 size={18} />}
@@ -142,10 +140,10 @@ const ChapterModal = ({ chapter, meta, onClose }) => {
 
   const filtered = searchQ.trim()
     ? allWords.filter(
-        (w) =>
-          w.word.toLowerCase().includes(searchQ.toLowerCase()) ||
-          w.meaning.toLowerCase().includes(searchQ.toLowerCase())
-      )
+      (w) =>
+        w.word.toLowerCase().includes(searchQ.toLowerCase()) ||
+        w.meaning.toLowerCase().includes(searchQ.toLowerCase())
+    )
     : null;
 
   // Group by category for the non-search view
@@ -177,9 +175,9 @@ const ChapterModal = ({ chapter, meta, onClose }) => {
         {/* Explore Background Image Layer */}
         {meta.exploreImage && (
           <div className="absolute inset-0 z-0 opacity-15 pointer-events-none">
-            <img 
-              src={meta.exploreImage} 
-              alt="" 
+            <img
+              src={meta.exploreImage}
+              alt=""
               className="w-full h-full object-cover grayscale opacity-50"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-[#080b10] via-transparent to-[#080b10]" />
@@ -191,77 +189,77 @@ const ChapterModal = ({ chapter, meta, onClose }) => {
         <div className="relative z-10 flex flex-col h-full">
           {/* Header image strip */}
           <div className="relative h-56 flex-shrink-0 overflow-hidden">
-          <img
-            src={meta.image}
-            alt={chapter.title}
-            className="w-full h-full object-cover opacity-60"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#080b10]" />
-          <button
-            onClick={onClose}
-            className="absolute top-5 right-5 p-3 bg-black/50 hover:bg-white/20 rounded-full text-white transition-all hover:rotate-90 duration-300"
-          >
-            <X size={22} />
-          </button>
-          <div className="absolute bottom-10 left-8">
-            <p className="text-xs font-bold tracking-[0.4em] uppercase mb-2" style={{ color: meta.accent }}>
-              {meta.tag}
-            </p>
-            <h2 className="text-4xl font-serif text-white tracking-wide">{chapter.title}</h2>
-          </div>
-        </div>
-
-        {/* Search */}
-        <div className="px-8 pt-6 pb-4 flex-shrink-0">
-          <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus-within:border-yellow-500/40 transition-colors">
-            <Search size={16} className="text-white/40" />
-            <input
-              type="text"
-              placeholder={`Tìm trong ${chapter.title}...`}
-              value={searchQ}
-              onChange={(e) => setSearchQ(e.target.value)}
-              className="flex-1 bg-transparent text-white text-sm outline-none placeholder:text-white/30"
+            <img
+              src={meta.image}
+              alt={chapter.title}
+              className="w-full h-full object-cover opacity-60"
             />
-            {searchQ && (
-              <button onClick={() => setSearchQ('')} className="text-white/30 hover:text-white">
-                <X size={14} />
-              </button>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#080b10]" />
+            <button
+              onClick={onClose}
+              className="absolute top-5 right-5 p-3 bg-black/50 hover:bg-white/20 rounded-full text-white transition-all hover:rotate-90 duration-300"
+            >
+              <X size={22} />
+            </button>
+            <div className="absolute bottom-10 left-8">
+              <p className="text-xs font-bold tracking-[0.4em] uppercase mb-2" style={{ color: meta.accent }}>
+                {meta.tag}
+              </p>
+              <h2 className="text-4xl font-serif text-white tracking-wide">{chapter.title}</h2>
+            </div>
+          </div>
+
+          {/* Search */}
+          <div className="px-8 pt-6 pb-4 flex-shrink-0">
+            <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus-within:border-yellow-500/40 transition-colors">
+              <Search size={16} className="text-white/40" />
+              <input
+                type="text"
+                placeholder={`Tìm trong ${chapter.title}...`}
+                value={searchQ}
+                onChange={(e) => setSearchQ(e.target.value)}
+                className="flex-1 bg-transparent text-white text-sm outline-none placeholder:text-white/30"
+              />
+              {searchQ && (
+                <button onClick={() => setSearchQ('')} className="text-white/30 hover:text-white">
+                  <X size={14} />
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Word list */}
+          <div className="flex-1 overflow-y-auto px-8 pb-10 space-y-10">
+            {filtered !== null ? (
+              filtered.length > 0 ? (
+                <div className="space-y-3">
+                  <p className="text-xs text-white/30 uppercase tracking-widest mb-4">
+                    {filtered.length} kết quả
+                  </p>
+                  {filtered.map((w, i) => <WordItem key={i} wordData={w} />)}
+                </div>
+              ) : (
+                <div className="text-center py-20 text-white/30">
+                  <BookOpen size={40} className="mx-auto mb-4 opacity-40" />
+                  <p>Không tìm thấy từ nào phù hợp</p>
+                </div>
+              )
+            ) : (
+              grouped.map((group, gi) => (
+                <div key={gi}>
+                  <h3 className="text-xs font-bold tracking-[0.2em] uppercase mb-4 pb-3 border-b border-white/5" style={{ color: meta.accent }}>
+                    {group.title}
+                  </h3>
+                  <div className="space-y-2">
+                    {group.words.map((w, wi) => <WordItem key={wi} wordData={w} />)}
+                  </div>
+                </div>
+              ))
             )}
           </div>
         </div>
-
-        {/* Word list */}
-        <div className="flex-1 overflow-y-auto px-8 pb-10 space-y-10">
-          {filtered !== null ? (
-            filtered.length > 0 ? (
-              <div className="space-y-3">
-                <p className="text-xs text-white/30 uppercase tracking-widest mb-4">
-                  {filtered.length} kết quả
-                </p>
-                {filtered.map((w, i) => <WordItem key={i} wordData={w} />)}
-              </div>
-            ) : (
-              <div className="text-center py-20 text-white/30">
-                <BookOpen size={40} className="mx-auto mb-4 opacity-40" />
-                <p>Không tìm thấy từ nào phù hợp</p>
-              </div>
-            )
-          ) : (
-            grouped.map((group, gi) => (
-              <div key={gi}>
-                <h3 className="text-xs font-bold tracking-[0.2em] uppercase mb-4 pb-3 border-b border-white/5" style={{ color: meta.accent }}>
-                  {group.title}
-                </h3>
-                <div className="space-y-2">
-                  {group.words.map((w, wi) => <WordItem key={wi} wordData={w} />)}
-                </div>
-              </div>
-            ))
-          )}
-        </div>
       </div>
     </div>
-  </div>
   );
 };
 
@@ -287,11 +285,10 @@ const ChapterSection = ({ chapter, index, meta, onExplore }) => {
           className="w-full h-full object-cover"
         />
         <div
-          className={`absolute inset-0 ${
-            isEven
+          className={`absolute inset-0 ${isEven
               ? 'bg-gradient-to-r from-black/85 via-black/50 to-transparent'
               : 'bg-gradient-to-l from-black/85 via-black/50 to-transparent'
-          }`}
+            }`}
         />
         <div className="absolute inset-0 bg-black/30" />
       </div>
@@ -346,10 +343,10 @@ const GlobalSearch = ({ query, setQuery, onClose }) => {
 
   const results = query.trim()
     ? allWords.filter(
-        (w) =>
-          w.word.toLowerCase().includes(query.toLowerCase()) ||
-          w.meaning.toLowerCase().includes(query.toLowerCase())
-      )
+      (w) =>
+        w.word.toLowerCase().includes(query.toLowerCase()) ||
+        w.meaning.toLowerCase().includes(query.toLowerCase())
+    )
     : [];
 
   useEffect(() => {
