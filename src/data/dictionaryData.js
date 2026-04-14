@@ -222,7 +222,7 @@ export const dictionaryData = [
                 "word": "Ăn khiêm mây",
                 "meaning": "Kim, chỉ",
                 "description": "dùng để may vá quần áo và sửa chữa vải vóc.",
-                "audio": "Kim, chỉ.m4a"
+                "audio": "Cái kim, chỉ.m4a"
               },
               {
                 "word": "Mạc pịạ, mạc phủ",
