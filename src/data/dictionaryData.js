@@ -1003,7 +1003,7 @@ export const dictionaryData = [
     ]
   },
   {
-    "title": "CHƯƠNG II: MÙA LỄ HỘI ________________________________________",
+    "title": "CHƯƠNG II: MÙA LỄ HỘI",
     "categories": [
       {
         "title": "A. Từ vựng về lễ hội truyền thống",

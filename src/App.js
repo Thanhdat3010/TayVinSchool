@@ -103,8 +103,8 @@ const WordItem = ({ wordData }) => {
         <button
           onClick={handlePlay}
           className={`flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border flex items-center justify-center transition-all duration-500 ${isPlaying
-              ? 'bg-yellow-500 border-yellow-500 text-black shadow-[0_0_20px_rgba(234,179,8,0.4)]'
-              : 'border-white/10 text-white/50 hover:bg-yellow-500 hover:border-yellow-500 hover:text-black'
+            ? 'bg-yellow-500 border-yellow-500 text-black shadow-[0_0_20px_rgba(234,179,8,0.4)]'
+            : 'border-white/10 text-white/50 hover:bg-yellow-500 hover:border-yellow-500 hover:text-black'
             }`}
         >
           {isPlaying ? <VolumeX size={18} className="animate-pulse" /> : <Volume2 size={18} />}
@@ -199,7 +199,7 @@ const ChapterModal = ({ chapter, meta, onClose }) => {
               <p className="text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase mb-2" style={{ color: meta.accent }}>
                 {meta.tag}
               </p>
-              <h2 className="text-3xl md:text-5xl font-serif text-white tracking-tight leading-tight">{chapter.title}</h2>
+              <h2 className="text-3xl md:text-5xl font-serif text-white tracking-tight leading-tight break-words">{chapter.title}</h2>
             </div>
           </div>
 
@@ -275,9 +275,9 @@ const ChapterSection = ({ chapter, index, meta, onExplore }) => {
           className="w-full h-full object-cover"
         />
         <div
-          className={`absolute inset-0 transition-all duration-1000 ${isEven
-              ? 'bg-gradient-to-r from-black/90 via-black/40 to-transparent'
-              : 'md:bg-gradient-to-l from-black/90 via-black/40 to-transparent bg-black/70'
+          className={`absolute inset-0 transition-all duration-500 ${isEven
+            ? 'bg-gradient-to-r from-black/90 via-black/40 to-transparent'
+            : 'md:bg-gradient-to-l from-black/90 via-black/40 to-transparent bg-black/70'
             }`}
         />
       </div>
@@ -289,7 +289,7 @@ const ChapterSection = ({ chapter, index, meta, onExplore }) => {
             Chương {index + 1} · {meta.tag}
           </div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-8xl font-serif font-light text-white leading-[1.15] md:leading-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-8xl font-serif font-light text-white leading-[1.15] md:leading-tight break-words">
             {chapter.title}
           </h2>
 
@@ -300,7 +300,7 @@ const ChapterSection = ({ chapter, index, meta, onExplore }) => {
 
           <button
             onClick={() => onExplore(chapter, meta)}
-            className="group flex items-center gap-4 px-6 md:px-8 py-3.5 md:py-5 bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white hover:text-black transition-all duration-500 rounded-full mt-4"
+            className="group flex items-center gap-4 px-6 md:px-8 py-3.5 md:py-5 bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white hover:text-black transition-all duration-300 rounded-full mt-4"
           >
             <PlayCircle size={18} className="md:w-5 md:h-5" />
             <span className="font-bold tracking-[0.1em] text-[11px] md:text-sm uppercase">KHÁM PHÁ NGÔN NGỮ</span>
@@ -360,7 +360,7 @@ const GlobalSearch = ({ query, setQuery, onClose }) => {
           />
           {query && (
             <button onClick={() => setQuery('')} className="absolute right-0 text-white/20 hover:text-yellow-500">
-               <X size={24} />
+              <X size={24} />
             </button>
           )}
         </div>
@@ -378,7 +378,7 @@ const GlobalSearch = ({ query, setQuery, onClose }) => {
           </div>
         ) : query ? (
           <div className="text-center py-20 md:py-32 text-white/10 animate-fade">
-             <PlayCircle size={60} className="mx-auto mb-6 opacity-5" />
+            <PlayCircle size={60} className="mx-auto mb-6 opacity-5" />
             <p className="text-xl md:text-3xl font-serif">Chưa thấy thanh âm này...</p>
             <p className="text-xs md:text-sm mt-4 tracking-widest uppercase opacity-40">Thử tìm kiếm với một từ khoá khác nhé</p>
           </div>
@@ -432,7 +432,7 @@ const App = () => {
 
       {/* ── Loading Curtain ── */}
       <div
-        className={`fixed inset-0 z-[200] bg-black flex items-center justify-center transition-transform duration-1000 ease-in-out ${isLoaded ? '-translate-y-full' : 'translate-y-0'}`}
+        className={`fixed inset-0 z-[200] bg-black flex items-center justify-center transition-transform duration-700 ease-in-out ${isLoaded ? '-translate-y-full' : 'translate-y-0'}`}
       >
         <div className="text-center space-y-4">
           <div className="w-12 h-px bg-yellow-500 mx-auto"></div>
@@ -471,7 +471,7 @@ const App = () => {
             src={image1}
             alt="Rừng Tây Bắc"
             className="w-full h-full object-cover opacity-60 md:opacity-100"
-            style={{ 
+            style={{
               transform: `translateY(${scrollY * 0.2}px)`,
               transition: 'transform 0.1s ease-out'
             }}
@@ -537,27 +537,27 @@ const App = () => {
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
           <img src={logoImg} alt="" className="w-full h-full object-contain scale-150 rotate-12" />
         </div>
-        
+
         <BookOpen size={48} className="mx-auto mb-8 text-yellow-600 animate-float" />
         <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif mb-6 leading-tight max-w-2xl">
-          Di sản nằm trong <br/> bàn tay bạn
+          Di sản nằm trong <br /> bàn tay bạn
         </h2>
         <p className="max-w-md text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] leading-loose opacity-60 mb-10">
           Dự án bảo tồn và lan toả ngôn ngữ dân tộc Tày qua trải nghiệm thị giác hiện đại.
         </p>
-        
+
         <button
           onClick={() => { setShowSearch(true); setSearchQuery(''); }}
           className="group relative px-10 py-5 bg-black text-white font-bold hover:bg-yellow-500 hover:text-black transition-all duration-500 rounded-full tracking-[0.2em] text-[10px] md:text-xs uppercase overflow-hidden"
         >
           <span className="relative z-10 flex items-center gap-3">
-             Tra cứu hành trình <ChevronRight size={14} />
+            Tra cứu hành trình <ChevronRight size={14} />
           </span>
           <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
         </button>
-        
+
         <div className="mt-20 pt-10 border-t border-black/5 w-full max-w-lg">
-           <p className="text-[8px] font-bold tracking-[0.5em] uppercase opacity-30">© 2024 Tày Heritage Multimedia Project</p>
+          <p className="text-[8px] font-bold tracking-[0.5em] uppercase opacity-30">© 2024 Tày Heritage Multimedia Project</p>
         </div>
       </footer>
 
