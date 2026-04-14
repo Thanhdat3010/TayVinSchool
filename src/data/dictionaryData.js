@@ -562,9 +562,9 @@ export const dictionaryData = [
               },
               {
                 "word": "Chen",
-                "meaning": "rán",
+                "meaning": "Rán",
                 "description": "Chiên thức ăn trong dầu/mỡ.",
-                "audio": "rán.m4a"
+                "audio": "Rán.m4a"
               },
               {
                 "word": "Nẩng",
@@ -640,15 +640,15 @@ export const dictionaryData = [
               },
               {
                 "word": "Héc",
-                "meaning": "chảo to",
+                "meaning": "Chảo to",
                 "description": "Chảo lớn để nấu ăn.",
-                "audio": "chảo to.m4a"
+                "audio": "Chảo to.m4a"
               },
               {
                 "word": "Cháo",
                 "meaning": "chảo",
                 "description": "Dụng cụ để rán, xào.",
-                "audio": "chảo.m4a"
+                "audio": "Chảo.m4a"
               },
               {
                 "word": "Mỏ",
