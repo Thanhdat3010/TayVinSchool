@@ -1,3 +1,82 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --glass-background: rgba(8, 11, 16, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.08);
+  }
+
+  body {
+    @apply bg-[#05070a] text-slate-100 overflow-x-hidden antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-xl border border-white/10;
+    background: var(--glass-background);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
+
+/* Animations */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-reveal {
+  animation: reveal-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-fade {
+  animation: fade-in 1.5s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full transition-colors hover:bg-yellow-500/50;
+}
+
+/* Parallax Optimization */
+.parallax-container {
+  will-change: transform;
+}

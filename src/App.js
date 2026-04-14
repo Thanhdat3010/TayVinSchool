@@ -60,20 +60,17 @@ const WordItem = ({ wordData }) => {
 
     const playAudio = (audioPath, fallbackPath = null) => {
       const audio = new Audio(audioPath);
-      audioRef.current = audio; // Store for pausing later
+      audioRef.current = audio;
       audio.onended = () => setIsPlaying(false);
       audio.onerror = () => {
         if (fallbackPath) {
-          console.warn("Retrying with fallback normalization:", fallbackPath);
           playAudio(fallbackPath);
         } else {
-          console.error("Audio Load Error at both normalizations:", audioPath);
           setIsPlaying(false);
         }
       };
 
       audio.play().catch((err) => {
-        console.error("Playback failed:", err);
         setIsPlaying(false);
       });
     };
@@ -84,7 +81,6 @@ const WordItem = ({ wordData }) => {
       setIsPlaying(false);
     } else {
       setIsPlaying(true);
-      // Try NFC path first, then NFD as fallback
       const fallbackPath = nfcFilename !== nfdFilename
         ? `${process.env.PUBLIC_URL || ''}/audio/${encodeURIComponent(nfdFilename)}`
         : null;
@@ -94,32 +90,33 @@ const WordItem = ({ wordData }) => {
 
   return (
     <div
-      className="group border border-white/5 rounded-2xl p-6 cursor-pointer hover:bg-white/5 hover:border-white/15 transition-all duration-300"
+      className="group border border-white/5 bg-white/[0.02] rounded-xl p-4 md:p-6 cursor-pointer hover:bg-white/[0.08] hover:border-white/20 transition-all duration-300"
       onClick={() => setExpanded(!expanded)}
     >
       <div className="flex items-center justify-between gap-4">
         <div className="flex-1 min-w-0">
-          <p className="text-2xl font-serif text-white group-hover:text-yellow-400 transition-colors truncate">
+          <p className="text-xl md:text-2xl font-serif text-white group-hover:text-yellow-400 transition-colors truncate">
             {wordData.word}
           </p>
-          <p className="text-white/50 italic text-sm mt-1">{wordData.meaning}</p>
+          <p className="text-white/40 italic text-xs md:text-sm mt-0.5 md:mt-1 truncate">{wordData.meaning}</p>
         </div>
         <button
           onClick={handlePlay}
-          className={`flex-shrink-0 w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-300 ${isPlaying
-              ? 'bg-yellow-500 border-yellow-500 text-black animate-pulse'
+          className={`flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border flex items-center justify-center transition-all duration-500 ${isPlaying
+              ? 'bg-yellow-500 border-yellow-500 text-black shadow-[0_0_20px_rgba(234,179,8,0.4)]'
               : 'border-white/10 text-white/50 hover:bg-yellow-500 hover:border-yellow-500 hover:text-black'
             }`}
-          title="Nghe phát âm"
         >
-          {isPlaying ? <VolumeX size={18} /> : <Volume2 size={18} />}
+          {isPlaying ? <VolumeX size={18} className="animate-pulse" /> : <Volume2 size={18} />}
         </button>
       </div>
 
       {expanded && wordData.description && (
-        <p className="mt-4 pt-4 border-t border-white/5 text-slate-300 text-sm leading-relaxed">
-          {wordData.description}
-        </p>
+        <div className="mt-3 pt-3 border-t border-white/5 animate-fade">
+          <p className="text-slate-400 text-[11px] md:text-sm leading-relaxed">
+            {wordData.description}
+          </p>
+        </div>
       )}
     </div>
   );
@@ -129,7 +126,6 @@ const WordItem = ({ wordData }) => {
 const ChapterModal = ({ chapter, meta, onClose }) => {
   const [searchQ, setSearchQ] = useState('');
 
-  // Collect all words from this chapter
   const allWords = [];
   chapter.categories.forEach((cat) => {
     (cat.words || []).forEach((w) => allWords.push({ ...w, _cat: cat.title }));
@@ -146,7 +142,6 @@ const ChapterModal = ({ chapter, meta, onClose }) => {
     )
     : null;
 
-  // Group by category for the non-search view
   const grouped = [];
   chapter.categories.forEach((cat) => {
     const catWords = cat.words || [];
@@ -163,94 +158,89 @@ const ChapterModal = ({ chapter, meta, onClose }) => {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-[100] overflow-hidden flex">
+    <div className="fixed inset-0 z-[100] overflow-hidden flex animate-fade">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/90 backdrop-blur-xl"
+        className="absolute inset-0 bg-black/80 backdrop-blur-xl transition-opacity"
         onClick={onClose}
       />
 
       {/* Panel */}
-      <div className="relative z-10 ml-auto w-full md:w-[55vw] h-full bg-[#080b10] flex flex-col shadow-2xl">
+      <div className="relative z-10 ml-auto w-full md:w-[600px] lg:w-[700px] h-full bg-[#080b10] flex flex-col shadow-2xl border-l border-white/5 animate-reveal">
         {/* Explore Background Image Layer */}
         {meta.exploreImage && (
-          <div className="absolute inset-0 z-0 opacity-15 pointer-events-none">
+          <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
             <img
               src={meta.exploreImage}
               alt=""
-              className="w-full h-full object-cover grayscale opacity-50"
+              className="w-full h-full object-cover grayscale"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-[#080b10] via-transparent to-[#080b10]" />
-            <div className="absolute inset-0 bg-black/40" />
           </div>
         )}
 
         {/* Content Wrapper */}
         <div className="relative z-10 flex flex-col h-full">
-          {/* Header image strip */}
-          <div className="relative h-56 flex-shrink-0 overflow-hidden">
+          {/* Header */}
+          <div className="relative h-48 md:h-64 flex-shrink-0 overflow-hidden">
             <img
               src={meta.image}
               alt={chapter.title}
-              className="w-full h-full object-cover opacity-60"
+              className="w-full h-full object-cover opacity-40"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#080b10]" />
             <button
               onClick={onClose}
-              className="absolute top-5 right-5 p-3 bg-black/50 hover:bg-white/20 rounded-full text-white transition-all hover:rotate-90 duration-300"
+              className="absolute top-6 right-6 p-3 bg-black/40 hover:bg-white hover:text-black rounded-full text-white transition-all duration-500 z-50"
             >
-              <X size={22} />
+              <X size={20} />
             </button>
-            <div className="absolute bottom-10 left-8">
-              <p className="text-xs font-bold tracking-[0.4em] uppercase mb-2" style={{ color: meta.accent }}>
+            <div className="absolute bottom-8 left-8 right-8">
+              <p className="text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase mb-2" style={{ color: meta.accent }}>
                 {meta.tag}
               </p>
-              <h2 className="text-4xl font-serif text-white tracking-wide">{chapter.title}</h2>
+              <h2 className="text-3xl md:text-5xl font-serif text-white tracking-tight leading-tight">{chapter.title}</h2>
             </div>
           </div>
 
-          {/* Search */}
-          <div className="px-8 pt-6 pb-4 flex-shrink-0">
-            <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus-within:border-yellow-500/40 transition-colors">
-              <Search size={16} className="text-white/40" />
+          {/* Search Bar */}
+          <div className="px-6 md:px-8 pt-4 md:pt-8 pb-4 flex-shrink-0">
+            <div className="flex items-center gap-3 bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 focus-within:border-yellow-500/50 transition-all shadow-inner">
+              <Search size={18} className="text-white/30" />
               <input
                 type="text"
-                placeholder={`Tìm trong ${chapter.title}...`}
+                placeholder="Tìm kiến trong chương này..."
                 value={searchQ}
                 onChange={(e) => setSearchQ(e.target.value)}
-                className="flex-1 bg-transparent text-white text-sm outline-none placeholder:text-white/30"
+                className="flex-1 bg-transparent text-white text-sm md:text-base outline-none placeholder:text-white/20"
               />
               {searchQ && (
-                <button onClick={() => setSearchQ('')} className="text-white/30 hover:text-white">
-                  <X size={14} />
+                <button onClick={() => setSearchQ('')} className="text-white/30 hover:text-yellow-500 transition-colors">
+                  <X size={16} />
                 </button>
               )}
             </div>
           </div>
 
           {/* Word list */}
-          <div className="flex-1 overflow-y-auto px-8 pb-10 space-y-10">
+          <div className="flex-1 overflow-y-auto px-6 md:px-8 pb-12 space-y-12">
             {filtered !== null ? (
-              filtered.length > 0 ? (
+              <div className="space-y-4">
+                <p className="text-[10px] text-white/30 uppercase tracking-[0.2em]">
+                  Đã tìm thấy {filtered.length} kết quả
+                </p>
                 <div className="space-y-3">
-                  <p className="text-xs text-white/30 uppercase tracking-widest mb-4">
-                    {filtered.length} kết quả
-                  </p>
                   {filtered.map((w, i) => <WordItem key={i} wordData={w} />)}
                 </div>
-              ) : (
-                <div className="text-center py-20 text-white/30">
-                  <BookOpen size={40} className="mx-auto mb-4 opacity-40" />
-                  <p>Không tìm thấy từ nào phù hợp</p>
-                </div>
-              )
+              </div>
             ) : (
               grouped.map((group, gi) => (
-                <div key={gi}>
-                  <h3 className="text-xs font-bold tracking-[0.2em] uppercase mb-4 pb-3 border-b border-white/5" style={{ color: meta.accent }}>
+                <div key={gi} className="space-y-6">
+                  <h3 className="text-[11px] font-bold tracking-[0.3em] uppercase opacity-70 flex items-center gap-4" style={{ color: meta.accent }}>
                     {group.title}
+                    <div className="h-px flex-1 bg-white/5" />
                   </h3>
-                  <div className="space-y-2">
+                  <div className="grid grid-cols-1 gap-3">
                     {group.words.map((w, wi) => <WordItem key={wi} wordData={w} />)}
                   </div>
                 </div>
@@ -276,48 +266,46 @@ const ChapterSection = ({ chapter, index, meta, onExplore }) => {
   }, 0);
 
   return (
-    <section className="relative h-screen w-full flex items-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative min-h-[80vh] md:h-screen w-full flex items-center overflow-hidden py-20 md:py-0">
+      {/* Background with optimized overlay */}
+      <div className="absolute inset-0 z-0 scale-105">
         <img
           src={meta.image}
           alt={chapter.title}
           className="w-full h-full object-cover"
         />
         <div
-          className={`absolute inset-0 ${isEven
-              ? 'bg-gradient-to-r from-black/85 via-black/50 to-transparent'
-              : 'bg-gradient-to-l from-black/85 via-black/50 to-transparent'
+          className={`absolute inset-0 transition-all duration-1000 ${isEven
+              ? 'bg-gradient-to-r from-black/90 via-black/40 to-transparent'
+              : 'md:bg-gradient-to-l from-black/90 via-black/40 to-transparent bg-black/70'
             }`}
         />
-        <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      <div className={`relative z-10 w-full px-12 md:px-20 flex ${isEven ? 'justify-start' : 'justify-end'}`}>
-        <div className="max-w-xl space-y-6">
-          <div className="flex items-center gap-3 text-xs font-bold tracking-[0.3em] uppercase" style={{ color: meta.accent }}>
-            <span className="h-px w-8 inline-block" style={{ background: meta.accent }}></span>
+      <div className={`relative z-10 w-full px-6 sm:px-12 md:px-20 flex ${isEven ? 'justify-start' : 'md:justify-end justify-start'}`}>
+        <div className="max-w-2xl space-y-6 md:space-y-8 animate-reveal">
+          <div className="flex items-center gap-3 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase" style={{ color: meta.accent }}>
+            <span className="h-[2px] w-8 md:w-12 inline-block" style={{ background: meta.accent }}></span>
             Chương {index + 1} · {meta.tag}
           </div>
 
-          <h2 className="text-5xl md:text-7xl font-serif font-light text-white leading-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-8xl font-serif font-light text-white leading-[1.15] md:leading-tight">
             {chapter.title}
           </h2>
 
-          <div className="flex items-center gap-6 text-white/40 text-sm">
-            <span>{chapter.categories.length} chủ đề</span>
-            <span className="w-1 h-1 rounded-full bg-white/20"></span>
-            <span>{wordCount} từ vựng</span>
+          <div className="flex flex-wrap items-center gap-4 md:gap-6 text-white/50 text-[10px] md:text-sm font-medium tracking-wide">
+            <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10">{chapter.categories.length} chủ đề</span>
+            <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10">{wordCount} từ vựng</span>
           </div>
 
           <button
             onClick={() => onExplore(chapter, meta)}
-            className="group flex items-center gap-4 px-7 py-4 bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white hover:text-black transition-all duration-500 rounded-full mt-4"
+            className="group flex items-center gap-4 px-6 md:px-8 py-3.5 md:py-5 bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white hover:text-black transition-all duration-500 rounded-full mt-4"
           >
-            <PlayCircle size={20} />
-            <span className="font-semibold tracking-wider text-sm">KHÁM PHÁ NGÔN NGỮ</span>
+            <PlayCircle size={18} className="md:w-5 md:h-5" />
+            <span className="font-bold tracking-[0.1em] text-[11px] md:text-sm uppercase">KHÁM PHÁ NGÔN NGỮ</span>
             <div
-              className="p-1.5 rounded-full transition-colors"
+              className="p-1.5 rounded-full transition-transform group-hover:rotate-45"
               style={{ background: meta.accent }}
             >
               <ChevronRight size={14} className="text-black" />
@@ -355,42 +343,49 @@ const GlobalSearch = ({ query, setQuery, onClose }) => {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-[150] bg-black/95 backdrop-blur-xl flex flex-col">
-      <div className="px-8 md:px-20 pt-12 pb-6">
-        <button onClick={onClose} className="mb-8 text-white/50 hover:text-white flex items-center gap-2 text-sm transition-colors">
-          <X size={16} /> Đóng
+    <div className="fixed inset-0 z-[150] bg-black/95 backdrop-blur-2xl flex flex-col animate-fade">
+      <div className="px-6 md:px-20 pt-10 md:pt-16 pb-6">
+        <button onClick={onClose} className="mb-6 md:mb-12 text-white/40 hover:text-white flex items-center gap-2 text-[10px] md:text-sm font-bold tracking-widest uppercase transition-all hover:gap-4">
+          <X size={18} /> Đóng cửa sổ tìm kiếm
         </button>
-        <div className="flex items-center gap-4 border-b border-white/10 pb-4">
-          <Search size={24} className="text-yellow-500" />
+        <div className="relative flex items-center gap-4 border-b border-white/10 pb-4 md:pb-6">
+          <Search size={28} className="text-yellow-500 hidden md:block" />
           <input
             autoFocus
             type="text"
             placeholder="Tìm từ Tày hoặc nghĩa Việt..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="flex-1 bg-transparent text-3xl text-white outline-none placeholder:text-white/20 font-serif"
+            className="flex-1 bg-transparent text-2xl md:text-5xl text-white outline-none placeholder:text-white/10 font-serif lowercase"
           />
+          {query && (
+            <button onClick={() => setQuery('')} className="absolute right-0 text-white/20 hover:text-yellow-500">
+               <X size={24} />
+            </button>
+          )}
         </div>
         {query && (
-          <p className="mt-3 text-white/30 text-sm">
-            {results.length} từ tìm thấy
+          <p className="mt-4 text-yellow-500/50 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">
+            {results.length} kết quả được tìm thấy
           </p>
         )}
       </div>
 
-      <div className="flex-1 overflow-y-auto px-8 md:px-20 pb-20">
+      <div className="flex-1 overflow-y-auto px-6 md:px-20 pb-20">
         {results.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mt-4">
             {results.map((w, i) => <WordItem key={i} wordData={w} />)}
           </div>
         ) : query ? (
-          <div className="text-center py-24 text-white/20">
-            <p className="text-xl font-serif">Không tìm thấy kết quả</p>
-            <p className="text-sm mt-2">Thử từ khác nhé!</p>
+          <div className="text-center py-20 md:py-32 text-white/10 animate-fade">
+             <PlayCircle size={60} className="mx-auto mb-6 opacity-5" />
+            <p className="text-xl md:text-3xl font-serif">Chưa thấy thanh âm này...</p>
+            <p className="text-xs md:text-sm mt-4 tracking-widest uppercase opacity-40">Thử tìm kiếm với một từ khoá khác nhé</p>
           </div>
         ) : (
-          <div className="text-center py-24 text-white/20">
-            <p className="text-lg">Gõ để bắt đầu tra cứu từ điển Tày...</p>
+          <div className="text-center py-20 md:py-32 text-white/10">
+            <Search size={80} className="mx-auto mb-8 opacity-5" />
+            <p className="text-lg md:text-xl font-light tracking-widest uppercase">Gõ để bắt đầu hành trình...</p>
           </div>
         )}
       </div>
@@ -448,71 +443,75 @@ const App = () => {
       </div>
 
       {/* ── Nav ── */}
-      <nav className="fixed top-0 left-0 w-full z-50 px-8 md:px-12 py-6 flex justify-between items-center pointer-events-none">
-        <div className="pointer-events-auto flex items-center gap-4 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <img src={logoImg} alt="Tày Logo" className="h-10 w-auto group-hover:scale-105 transition-transform duration-500 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]" />
+      <nav className={`fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-5 flex justify-between items-center transition-all duration-500 ${scrollY > 50 ? 'bg-black/80 backdrop-blur-lg border-b border-white/5 py-4' : 'bg-transparent'}`}>
+        <div className="flex items-center gap-3 md:gap-4 group cursor-pointer pointer-events-auto" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <img src={logoImg} alt="Tày Logo" className="h-8 md:h-10 w-auto group-hover:rotate-12 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" />
           <div className="flex flex-col">
-            <span className="font-serif italic text-xl tracking-wide text-white group-hover:text-yellow-400 transition-colors">Tày Heritage</span>
-            <span className="text-[8px] font-bold tracking-[0.3em] uppercase text-white/40">Multimedia Dictionary</span>
+            <span className="font-serif italic text-lg md:text-xl tracking-wide text-white group-hover:text-yellow-400 transition-colors">Tày Heritage</span>
+            <span className="text-[7px] md:text-[8px] font-bold tracking-[0.3em] uppercase text-white/40">Multimedia Dictionary</span>
           </div>
         </div>
 
-        <div className="pointer-events-auto flex items-center gap-6">
+        <div className="flex items-center gap-4 md:gap-8 pointer-events-auto">
           <button
             onClick={() => { setShowSearch(true); setSearchQuery(''); }}
-            className="flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-white/60 hover:text-yellow-500 transition-colors"
+            className="flex items-center gap-2 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-white/70 hover:text-yellow-500 transition-all"
           >
             <Search size={16} />
-            <span className="hidden md:inline">Tra từ</span>
+            <span className="hidden sm:inline">Tra từ</span>
           </button>
         </div>
       </nav>
 
       {/* ── Hero ── */}
-      <section className="relative h-screen w-full flex flex-col items-center justify-center text-center px-6 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/60 z-10" />
+      <section className="relative min-h-screen w-full flex flex-col items-center justify-center text-center px-6 overflow-hidden pt-20">
+        <div className="absolute inset-0 z-0 scale-110">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-[#05070a] z-10" />
           <img
             src={image1}
             alt="Rừng Tây Bắc"
-            className="w-full h-full object-cover"
-            style={{ transform: `scale(1.1) translateY(${scrollY * 0.15}px)` }}
+            className="w-full h-full object-cover opacity-60 md:opacity-100"
+            style={{ 
+              transform: `translateY(${scrollY * 0.2}px)`,
+              transition: 'transform 0.1s ease-out'
+            }}
           />
         </div>
 
-        <div className="relative z-10 space-y-8 max-w-3xl">
-          <div className="flex items-center justify-center gap-3 text-white/50 text-xs font-bold tracking-[0.4em] uppercase">
-            <Wind size={14} />
-            Thanh âm của gió ngàn
+        <div className="relative z-10 space-y-6 md:space-y-10 max-w-4xl animate-reveal">
+          <div className="flex items-center justify-center gap-3 text-yellow-500/80 text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase">
+            <div className="h-px w-6 md:w-10 bg-yellow-500/50" />
+            <span className="flex items-center gap-2"><Wind size={14} /> Thanh âm của gió ngàn</span>
+            <div className="h-px w-6 md:w-10 bg-yellow-500/50" />
           </div>
 
-          <h1 className="text-6xl md:text-8xl font-serif text-white leading-tight">
+          <h1 className="text-5xl sm:text-7xl md:text-9xl font-serif text-white leading-[1.1] md:leading-tight">
             Chạm vào <br />
-            <span className="italic text-yellow-400">Bản sắc Tày</span>
+            <span className="italic text-yellow-400 drop-shadow-[0_0_30px_rgba(250,204,21,0.2)]">Bản sắc Tày</span>
           </h1>
 
-          <p className="text-lg text-slate-300 font-light max-w-md mx-auto leading-relaxed">
+          <p className="text-sm md:text-lg text-slate-300 font-light max-w-lg mx-auto leading-relaxed px-4 opacity-80">
             Không chỉ là từ điển — đây là hành trình đi sâu vào linh hồn của những bản làng ẩn mình sau mây.
           </p>
 
-          {/* Stats */}
-          <div className="flex items-center justify-center gap-10 pt-4">
+          {/* Stats Grid */}
+          <div className="grid grid-cols-3 gap-4 md:gap-16 pt-4 max-w-2xl mx-auto">
             {[
               { n: `${totalWords}+`, l: 'Từ vựng' },
               { n: `${dictionaryData.length}`, l: 'Chương' },
               { n: `${dictionaryData.reduce((t, ch) => t + ch.categories.length, 0)}`, l: 'Chủ đề' },
             ].map((s) => (
-              <div key={s.l} className="text-center">
-                <p className="text-3xl font-serif text-yellow-400">{s.n}</p>
-                <p className="text-xs text-white/40 uppercase tracking-widest mt-1">{s.l}</p>
+              <div key={s.l} className="text-center group">
+                <p className="text-2xl md:text-4xl font-serif text-yellow-400 group-hover:scale-110 transition-transform">{s.n}</p>
+                <p className="text-[8px] md:text-xs text-white/40 uppercase tracking-[0.2em] mt-2">{s.l}</p>
               </div>
             ))}
           </div>
 
-          <div className="flex flex-col items-center gap-3 pt-6">
-            <div className="w-px h-16 bg-gradient-to-b from-yellow-500 to-transparent"></div>
-            <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-yellow-500">Cuộn để bắt đầu</span>
-            <ArrowDown size={16} className="text-yellow-500 animate-bounce" />
+          <div className="flex flex-col items-center gap-4 pt-8 opacity-60">
+            <div className="w-px h-12 md:h-20 bg-gradient-to-b from-yellow-500 to-transparent"></div>
+            <span className="text-[9px] md:text-[10px] font-bold tracking-[0.4em] uppercase text-yellow-500/70">Cuộn xuống</span>
+            <ArrowDown size={14} className="text-yellow-500 animate-bounce" />
           </div>
         </div>
       </section>
@@ -534,18 +533,32 @@ const App = () => {
       </main>
 
       {/* ── Footer ── */}
-      <footer className="relative h-[55vh] flex flex-col items-center justify-center text-center px-8 bg-white text-black overflow-hidden">
-        <BookOpen size={48} className="mx-auto mb-6 opacity-10" />
-        <h2 className="text-4xl md:text-5xl font-serif mb-4">Di sản nằm trong bàn tay bạn</h2>
-        <p className="max-w-md text-sm uppercase tracking-widest leading-loose opacity-50 mb-8">
+      <footer className="relative min-h-[60vh] flex flex-col items-center justify-center text-center px-6 py-20 bg-white text-black overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+          <img src={logoImg} alt="" className="w-full h-full object-contain scale-150 rotate-12" />
+        </div>
+        
+        <BookOpen size={48} className="mx-auto mb-8 text-yellow-600 animate-float" />
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif mb-6 leading-tight max-w-2xl">
+          Di sản nằm trong <br/> bàn tay bạn
+        </h2>
+        <p className="max-w-md text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] leading-loose opacity-60 mb-10">
           Dự án bảo tồn và lan toả ngôn ngữ dân tộc Tày qua trải nghiệm thị giác hiện đại.
         </p>
+        
         <button
           onClick={() => { setShowSearch(true); setSearchQuery(''); }}
-          className="px-10 py-4 border-2 border-black font-bold hover:bg-black hover:text-white transition-all duration-300 rounded-full tracking-widest text-xs uppercase"
+          className="group relative px-10 py-5 bg-black text-white font-bold hover:bg-yellow-500 hover:text-black transition-all duration-500 rounded-full tracking-[0.2em] text-[10px] md:text-xs uppercase overflow-hidden"
         >
-          Tra cứu từ điển
+          <span className="relative z-10 flex items-center gap-3">
+             Tra cứu hành trình <ChevronRight size={14} />
+          </span>
+          <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
         </button>
+        
+        <div className="mt-20 pt-10 border-t border-black/5 w-full max-w-lg">
+           <p className="text-[8px] font-bold tracking-[0.5em] uppercase opacity-30">© 2024 Tày Heritage Multimedia Project</p>
+        </div>
       </footer>
 
       {/* ── Chapter Word Modal ── */}
