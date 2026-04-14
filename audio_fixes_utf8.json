@@ -1,0 +1,426 @@
+﻿[
+  {
+    "target": "\"word\": \"─én khung dß╗çt\",\r\n                \"meaning\": \"Khung cß╗¡i\",\r\n                \"description\": \"d├╣ng ─æß╗â dß╗çt vß║úi thß╗ò cß║⌐m, tß║ío trang phß╗Ñc truyß╗ün thß╗æng cß╗ºa ng╞░ß╗¥i T├áy.\",\r\n                \"audio\": \"Khung cß╗¡i.m4a\"\r\n              }",
+    "replacement": "\"word\": \"─én khung dß╗çt\",\r\n                \"meaning\": \"Khung cß╗¡i\",\r\n                \"description\": \"d├╣ng ─æß╗â dß╗çt vß║úi thß╗ò cß║⌐m, tß║ío trang phß╗Ñc truyß╗ün thß╗æng cß╗ºa ng╞░ß╗¥i T├áy.\",\r\n                \"audio\": \"Khung cß╗¡i_1.m4a\"\r\n              }",
+    "word": "─én khung dß╗çt",
+    "meaning": "Khung cß╗¡i",
+    "old": "Khung cß╗¡i.m4a",
+    "new": "Khung cß╗¡i_1.m4a"
+  },
+  {
+    "target": "\"word\": \"Ng├▓i\",\r\n                \"meaning\": \"tr├┤ng\",\r\n                \"description\": \"tr├┤ng coi\",\r\n                \"audio\": \"tr├┤ng.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Ng├▓i\",\r\n                \"meaning\": \"tr├┤ng\",\r\n                \"description\": \"tr├┤ng coi\",\r\n                \"audio\": \"Tr├┤ng.m4a\"\r\n              }",
+    "word": "Ng├▓i",
+    "meaning": "tr├┤ng",
+    "old": "tr├┤ng.m4a",
+    "new": "Tr├┤ng.m4a"
+  },
+  {
+    "target": "\"word\": \"Fß║Ñt\",\r\n                \"meaning\": \"cay\",\r\n                \"description\": \"Vß╗ï n├│ng, g├óy cß║úm gi├íc cay.\",\r\n                \"audio\": \"cay.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Fß║Ñt\",\r\n                \"meaning\": \"cay\",\r\n                \"description\": \"Vß╗ï n├│ng, g├óy cß║úm gi├íc cay.\",\r\n                \"audio\": \"Cay.m4a\"\r\n              }",
+    "word": "Fß║Ñt",
+    "meaning": "cay",
+    "old": "cay.m4a",
+    "new": "Cay.m4a"
+  },
+  {
+    "target": "\"word\": \"Tß║Ñm\",\r\n                \"meaning\": \"chua\",\r\n                \"description\": \"vß╗ï chua, c├│ ─æß╗Ö axit\",\r\n                \"audio\": \"chua.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Tß║Ñm\",\r\n                \"meaning\": \"chua\",\r\n                \"description\": \"vß╗ï chua, c├│ ─æß╗Ö axit\",\r\n                \"audio\": \"Chua.m4a\"\r\n              }",
+    "word": "Tß║Ñm",
+    "meaning": "chua",
+    "old": "chua.m4a",
+    "new": "Chua.m4a"
+  },
+  {
+    "target": "\"word\": \"Hat then\",\r\n                \"meaning\": \"h├ít then\",\r\n                \"description\": \"h├¼nh thß╗⌐c h├ít truyß╗ün thß╗æng cß╗ºa ng╞░ß╗¥i T├áy.\",\r\n                \"audio\": \"h├ít then.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Hat then\",\r\n                \"meaning\": \"h├ít then\",\r\n                \"description\": \"h├¼nh thß╗⌐c h├ít truyß╗ün thß╗æng cß╗ºa ng╞░ß╗¥i T├áy.\",\r\n                \"audio\": \"H├ít then.m4a\"\r\n              }",
+    "word": "Hat then",
+    "meaning": "h├ít then",
+    "old": "h├ít then.m4a",
+    "new": "H├ít then.m4a"
+  },
+  {
+    "target": "\"word\": \"Hß╗⌐ c─ân\",\r\n                \"meaning\": \"cho nhau\",\r\n                \"description\": \"cho nhau, chia sß║╗ vß╗¢i nhau.\",\r\n                \"audio\": \"cho nhau.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Hß╗⌐ c─ân\",\r\n                \"meaning\": \"cho nhau\",\r\n                \"description\": \"cho nhau, chia sß║╗ vß╗¢i nhau.\",\r\n                \"audio\": \"Cho nhau.m4a\"\r\n              }",
+    "word": "Hß╗⌐ c─ân",
+    "meaning": "cho nhau",
+    "old": "cho nhau.m4a",
+    "new": "Cho nhau.m4a"
+  },
+  {
+    "target": "\"word\": \"Chia c─ân\",\r\n                \"meaning\": \"chia nhau\",\r\n                \"description\": \"chia sß║╗, san sß║╗ cho nhau.\",\r\n                \"audio\": \"chia nhau.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Chia c─ân\",\r\n                \"meaning\": \"chia nhau\",\r\n                \"description\": \"chia sß║╗, san sß║╗ cho nhau.\",\r\n                \"audio\": \"Chia nhau.m4a\"\r\n              }",
+    "word": "Chia c─ân",
+    "meaning": "chia nhau",
+    "old": "chia nhau.m4a",
+    "new": "Chia nhau.m4a"
+  },
+  {
+    "target": "\"word\": \"Pß╗▒t Tß║ú Phß╗º\",\r\n                \"meaning\": \"C├║ng Tß║ú Phß╗º\",\r\n                \"description\": \"d├óng lß╗à cß║ºu ph├║c, cß║ºu t├ái lß╗Öc.\",\r\n                \"audio\": \"C├║ng Tß║ú Phß╗º.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Pß╗▒t Tß║ú Phß╗º\",\r\n                \"meaning\": \"C├║ng Tß║ú Phß╗º\",\r\n                \"description\": \"d├óng lß╗à cß║ºu ph├║c, cß║ºu t├ái lß╗Öc.\",\r\n                \"audio\": \"C├║ng tß║ú phß╗º..m4a\"\r\n              }",
+    "word": "Pß╗▒t Tß║ú Phß╗º",
+    "meaning": "C├║ng Tß║ú Phß╗º",
+    "old": "C├║ng Tß║ú Phß╗º.m4a",
+    "new": "C├║ng tß║ú phß╗º..m4a"
+  },
+  {
+    "target": "\"word\": \"P├óy slß║╖p\",\r\n                \"meaning\": \"─Éi r╞░ß╗¢c\",\r\n                \"description\": \"tham gia ─æo├án r╞░ß╗¢c.\",\r\n                \"audio\": \"─Éi r╞░ß╗¢c.m4a\"\r\n              }",
+    "replacement": "\"word\": \"P├óy slß║╖p\",\r\n                \"meaning\": \"─Éi r╞░ß╗¢c\",\r\n                \"description\": \"tham gia ─æo├án r╞░ß╗¢c.\",\r\n                \"audio\": \"─Éi r╞░ß╗¢c..m4a\"\r\n              }",
+    "word": "P├óy slß║╖p",
+    "meaning": "─Éi r╞░ß╗¢c",
+    "old": "─Éi r╞░ß╗¢c.m4a",
+    "new": "─Éi r╞░ß╗¢c..m4a"
+  },
+  {
+    "target": "\"word\": \"Mß╗ºa s╞░ tß╗¡ m├¿o\",\r\n                \"meaning\": \"M├║a s╞░ tß╗¡ m├¿o\",\r\n                \"description\": \"biß╗âu diß╗àn trong lß╗à hß╗Öi.\",\r\n                \"audio\": \"M├║a s╞░ tß╗¡ m├¿o.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Mß╗ºa s╞░ tß╗¡ m├¿o\",\r\n                \"meaning\": \"M├║a s╞░ tß╗¡ m├¿o\",\r\n                \"description\": \"biß╗âu diß╗àn trong lß╗à hß╗Öi.\",\r\n                \"audio\": \"M├║a s╞░ tß╗¡ m├¿o_1.m4a\"\r\n              }",
+    "word": "Mß╗ºa s╞░ tß╗¡ m├¿o",
+    "meaning": "M├║a s╞░ tß╗¡ m├¿o",
+    "old": "M├║a s╞░ tß╗¡ m├¿o.m4a",
+    "new": "M├║a s╞░ tß╗¡ m├¿o_1.m4a"
+  },
+  {
+    "target": "\"word\": \"Tiß╗ân khß║⌐u\",\r\n                \"meaning\": \"D├óng c╞ím\",\r\n                \"description\": \"d├óng lß╗à vß║¡t l├¬n tß╗ò ti├¬n.\",\r\n                \"audio\": \"D├óng c╞ím.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Tiß╗ân khß║⌐u\",\r\n                \"meaning\": \"D├óng c╞ím\",\r\n                \"description\": \"d├óng lß╗à vß║¡t l├¬n tß╗ò ti├¬n.\",\r\n                \"audio\": \"D├óng c╞ím_1.m4a\"\r\n              }",
+    "word": "Tiß╗ân khß║⌐u",
+    "meaning": "D├óng c╞ím",
+    "old": "D├óng c╞ím.m4a",
+    "new": "D├óng c╞ím_1.m4a"
+  },
+  {
+    "target": "\"word\": \"Nß║⌐ng khß║⌐u nua\",\r\n                \"meaning\": \"─Éß╗ô x├┤i\",\r\n                \"description\": \"nß║Ñu x├┤i tß╗½ gß║ío mß╗¢i.\",\r\n                \"audio\": \"─Éß╗ô x├┤i.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Nß║⌐ng khß║⌐u nua\",\r\n                \"meaning\": \"─Éß╗ô x├┤i\",\r\n                \"description\": \"nß║Ñu x├┤i tß╗½ gß║ío mß╗¢i.\",\r\n                \"audio\": \"─Éß╗ô x├┤i_1.m4a\"\r\n              }",
+    "word": "Nß║⌐ng khß║⌐u nua",
+    "meaning": "─Éß╗ô x├┤i",
+    "old": "─Éß╗ô x├┤i.m4a",
+    "new": "─Éß╗ô x├┤i_1.m4a"
+  },
+  {
+    "target": "\"word\": \"Tiß║╗m c├íy\",\r\n                \"meaning\": \"Luß╗Öc g├á\",\r\n                \"description\": \"chuß║⌐n bß╗ï lß╗à c├║ng.\",\r\n                \"audio\": \"Luß╗Öc g├á.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Tiß║╗m c├íy\",\r\n                \"meaning\": \"Luß╗Öc g├á\",\r\n                \"description\": \"chuß║⌐n bß╗ï lß╗à c├║ng.\",\r\n                \"audio\": \"Luß╗Öc g├á_1.m4a\"\r\n              }",
+    "word": "Tiß║╗m c├íy",
+    "meaning": "Luß╗Öc g├á",
+    "old": "Luß╗Öc g├á.m4a",
+    "new": "Luß╗Öc g├á_1.m4a"
+  },
+  {
+    "target": "\"word\": \"T├áng khß║⌐u\",\r\n                \"meaning\": \"M├óm c╞ím\",\r\n                \"description\": \"b├áy biß╗çn ─æß╗ô ─ân.\",\r\n                \"audio\": \"M├óm c╞ím.m4a\"\r\n              }",
+    "replacement": "\"word\": \"T├áng khß║⌐u\",\r\n                \"meaning\": \"M├óm c╞ím\",\r\n                \"description\": \"b├áy biß╗çn ─æß╗ô ─ân.\",\r\n                \"audio\": \"M├óm c╞ím_1.m4a\"\r\n              }",
+    "word": "T├áng khß║⌐u",
+    "meaning": "M├óm c╞ím",
+    "old": "M├óm c╞ím.m4a",
+    "new": "M├óm c╞ím_1.m4a"
+  },
+  {
+    "target": "\"word\": \"P├íy tß║í\",\r\n                \"meaning\": \"Tß║í ╞ín\",\r\n                \"description\": \"cß║úm ╞ín trß╗¥i ─æß║Ñt, tß╗ò ti├¬n.\",\r\n                \"audio\": \"Tß║í ╞ín.m4a\"\r\n              }",
+    "replacement": "\"word\": \"P├íy tß║í\",\r\n                \"meaning\": \"Tß║í ╞ín\",\r\n                \"description\": \"cß║úm ╞ín trß╗¥i ─æß║Ñt, tß╗ò ti├¬n.\",\r\n                \"audio\": \"Tß║í ╞ín_1.m4a\"\r\n              }",
+    "word": "P├íy tß║í",
+    "meaning": "Tß║í ╞ín",
+    "old": "Tß║í ╞ín.m4a",
+    "new": "Tß║í ╞ín_1.m4a"
+  },
+  {
+    "target": "\"word\": \"L╞░ß╗ún cß╗ìi\",\r\n                \"meaning\": \"H├ít vui\",\r\n                \"description\": \"sinh hoß║ít v─ân h├│a sau lß╗à.\",\r\n                \"audio\": \"H├ít vui.m4a\"\r\n              }",
+    "replacement": "\"word\": \"L╞░ß╗ún cß╗ìi\",\r\n                \"meaning\": \"H├ít vui\",\r\n                \"description\": \"sinh hoß║ít v─ân h├│a sau lß╗à.\",\r\n                \"audio\": \"H├ít vui_1.m4a\"\r\n              }",
+    "word": "L╞░ß╗ún cß╗ìi",
+    "meaning": "H├ít vui",
+    "old": "H├ít vui.m4a",
+    "new": "H├ít vui_1.m4a"
+  },
+  {
+    "target": "\"word\": \"Khß║ú non\",\r\n                \"meaning\": \"Giß║┐t s├óu\",\r\n                \"description\": \"ti├¬u diß╗çt s├óu bß╗ì.\",\r\n                \"audio\": \"Giß║┐t s├óu.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Khß║ú non\",\r\n                \"meaning\": \"Giß║┐t s├óu\",\r\n                \"description\": \"ti├¬u diß╗çt s├óu bß╗ì.\",\r\n                \"audio\": \"Giß║┐t s├óu_1.m4a\"\r\n              }",
+    "word": "Khß║ú non",
+    "meaning": "Giß║┐t s├óu",
+    "old": "Giß║┐t s├óu.m4a",
+    "new": "Giß║┐t s├óu_1.m4a"
+  },
+  {
+    "target": "\"word\": \"T├▓ b├óΓÇÖu\",\r\n                \"meaning\": \"H├íi l├í\",\r\n                \"description\": \"lß║Ñy l├í c├óy l├ám thuß╗æc.\",\r\n                \"audio\": \"H├íi l├í.m4a\"\r\n              }",
+    "replacement": "\"word\": \"T├▓ b├óΓÇÖu\",\r\n                \"meaning\": \"H├íi l├í\",\r\n                \"description\": \"lß║Ñy l├í c├óy l├ám thuß╗æc.\",\r\n                \"audio\": \"H├íi l├í_1.m4a\"\r\n              }",
+    "word": "T├▓ b├óΓÇÖu",
+    "meaning": "H├íi l├í",
+    "old": "H├íi l├í.m4a",
+    "new": "H├íi l├í_1.m4a"
+  },
+  {
+    "target": "\"word\": \"P├íc rß╗½ng\",\r\n                \"meaning\": \"L├í rß╗½ng\",\r\n                \"description\": \"nguy├¬n liß╗çu tß╗▒ nhi├¬n.\",\r\n                \"audio\": \"L├í rß╗½ng.m4a\"\r\n              }",
+    "replacement": "\"word\": \"P├íc rß╗½ng\",\r\n                \"meaning\": \"L├í rß╗½ng\",\r\n                \"description\": \"nguy├¬n liß╗çu tß╗▒ nhi├¬n.\",\r\n                \"audio\": \"L├í rß╗½ng_1.m4a\"\r\n              }",
+    "word": "P├íc rß╗½ng",
+    "meaning": "L├í rß╗½ng",
+    "old": "L├í rß╗½ng.m4a",
+    "new": "L├í rß╗½ng_1.m4a"
+  },
+  {
+    "target": "\"word\": \"├üp nhß║ú\",\r\n                \"meaning\": \"Tß║»m l├í\",\r\n                \"description\": \"tß║»m bß║▒ng n╞░ß╗¢c l├í.\",\r\n                \"audio\": \"Tß║»m l├í.m4a\"\r\n              }",
+    "replacement": "\"word\": \"├üp nhß║ú\",\r\n                \"meaning\": \"Tß║»m l├í\",\r\n                \"description\": \"tß║»m bß║▒ng n╞░ß╗¢c l├í.\",\r\n                \"audio\": \"Tß║»m l├í_1.m4a\"\r\n              }",
+    "word": "├üp nhß║ú",
+    "meaning": "Tß║»m l├í",
+    "old": "Tß║»m l├í.m4a",
+    "new": "Tß║»m l├í_1.m4a"
+  },
+  {
+    "target": "\"word\": \"P├óy rß║½y\",\r\n                \"meaning\": \"Ra rß║½y\",\r\n                \"description\": \"kiß╗âm tra c├óy trß╗ông.\",\r\n                \"audio\": \"Ra rß║½y.m4a\"\r\n              }",
+    "replacement": "\"word\": \"P├óy rß║½y\",\r\n                \"meaning\": \"Ra rß║½y\",\r\n                \"description\": \"kiß╗âm tra c├óy trß╗ông.\",\r\n                \"audio\": \"Ra rß║½y_1.m4a\"\r\n              }",
+    "word": "P├óy rß║½y",
+    "meaning": "Ra rß║½y",
+    "old": "Ra rß║½y.m4a",
+    "new": "Ra rß║½y_1.m4a"
+  },
+  {
+    "target": "\"word\": \"nh├▓m mß║í\",\r\n                \"meaning\": \"Xem l├║a\",\r\n                \"description\": \"theo d├╡i m├╣a vß╗Ñ.\",\r\n                \"audio\": \"Xem l├║a.m4a\"\r\n              }",
+    "replacement": "\"word\": \"nh├▓m mß║í\",\r\n                \"meaning\": \"Xem l├║a\",\r\n                \"description\": \"theo d├╡i m├╣a vß╗Ñ.\",\r\n                \"audio\": \"Xem l├║a_1.m4a\"\r\n              }",
+    "word": "nh├▓m mß║í",
+    "meaning": "Xem l├║a",
+    "old": "Xem l├║a.m4a",
+    "new": "Xem l├║a_1.m4a"
+  },
+  {
+    "target": "\"word\": \"tß║╣p non\",\r\n                \"meaning\": \"Xua s├óu\",\r\n                \"description\": \"bß║úo vß╗ç m├╣a m├áng.\",\r\n                \"audio\": \"Xua s├óu.m4a\"\r\n              }",
+    "replacement": "\"word\": \"tß║╣p non\",\r\n                \"meaning\": \"Xua s├óu\",\r\n                \"description\": \"bß║úo vß╗ç m├╣a m├áng.\",\r\n                \"audio\": \"Xua s├óu_1.m4a\"\r\n              }",
+    "word": "tß║╣p non",
+    "meaning": "Xua s├óu",
+    "old": "Xua s├óu.m4a",
+    "new": "Xua s├óu_1.m4a"
+  },
+  {
+    "target": "\"word\": \"Kin l├¿ng\",\r\n                \"meaning\": \"─én nhß║╣\",\r\n                \"description\": \"─ân s├íng theo tß╗Ñc lß╗ç.\",\r\n                \"audio\": \"─én nhß║╣.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Kin l├¿ng\",\r\n                \"meaning\": \"─én nhß║╣\",\r\n                \"description\": \"─ân s├íng theo tß╗Ñc lß╗ç.\",\r\n                \"audio\": \"─én nhß║╣_1.m4a\"\r\n              }",
+    "word": "Kin l├¿ng",
+    "meaning": "─én nhß║╣",
+    "old": "─én nhß║╣.m4a",
+    "new": "─én nhß║╣_1.m4a"
+  },
+  {
+    "target": "\"word\": \"cß║ºn hß║»t sl├áy\",\r\n                \"meaning\": \"Ng╞░ß╗¥i l├ám n╞░╞íng\",\r\n                \"description\": \"tham gia lao ─æß╗Öng.\",\r\n                \"audio\": \"Ng╞░ß╗¥i l├ám n╞░╞íng.m4a\"\r\n              }",
+    "replacement": "\"word\": \"cß║ºn hß║»t sl├áy\",\r\n                \"meaning\": \"Ng╞░ß╗¥i l├ám n╞░╞íng\",\r\n                \"description\": \"tham gia lao ─æß╗Öng.\",\r\n                \"audio\": \"Ng╞░ß╗¥i l├ám n╞░╞íng_1.m4a\"\r\n              }",
+    "word": "cß║ºn hß║»t sl├áy",
+    "meaning": "Ng╞░ß╗¥i l├ám n╞░╞íng",
+    "old": "Ng╞░ß╗¥i l├ám n╞░╞íng.m4a",
+    "new": "Ng╞░ß╗¥i l├ám n╞░╞íng_1.m4a"
+  },
+  {
+    "target": "\"word\": \"Pß╗Ñt then\",\r\n                \"meaning\": \"Thß║ºy then\",\r\n                \"description\": \"ng╞░ß╗¥i l├ám lß╗à.\",\r\n                \"audio\": \"Thß║ºy then.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Pß╗Ñt then\",\r\n                \"meaning\": \"Thß║ºy then\",\r\n                \"description\": \"ng╞░ß╗¥i l├ám lß╗à.\",\r\n                \"audio\": \"Thß║ºy then_1.m4a\"\r\n              }",
+    "word": "Pß╗Ñt then",
+    "meaning": "Thß║ºy then",
+    "old": "Thß║ºy then.m4a",
+    "new": "Thß║ºy then_1.m4a"
+  },
+  {
+    "target": "\"word\": \"Lß╗¥i then\",\r\n                \"meaning\": \"Lß╗¥i h├ít then\",\r\n                \"description\": \"nß╗Öi dung nghi lß╗à.\",\r\n                \"audio\": \"Lß╗¥i h├ít then.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Lß╗¥i then\",\r\n                \"meaning\": \"Lß╗¥i h├ít then\",\r\n                \"description\": \"nß╗Öi dung nghi lß╗à.\",\r\n                \"audio\": \"Lß╗¥i h├ít then_1.m4a\"\r\n              }",
+    "word": "Lß╗¥i then",
+    "meaning": "Lß╗¥i h├ít then",
+    "old": "Lß╗¥i h├ít then.m4a",
+    "new": "Lß╗¥i h├ít then_1.m4a"
+  },
+  {
+    "target": "\"word\": \"T├¡nh tß║⌐u\",\r\n                \"meaning\": \"─É├án t├¡nh\",\r\n                \"description\": \"nhß║íc cß╗Ñ ch├¡nh.\",\r\n                \"audio\": \"─É├án t├¡nh.m4a\"\r\n              }",
+    "replacement": "\"word\": \"T├¡nh tß║⌐u\",\r\n                \"meaning\": \"─É├án t├¡nh\",\r\n                \"description\": \"nhß║íc cß╗Ñ ch├¡nh.\",\r\n                \"audio\": \"─É├án t├¡nh_1.m4a\"\r\n              }",
+    "word": "T├¡nh tß║⌐u",
+    "meaning": "─É├án t├¡nh",
+    "old": "─É├án t├¡nh.m4a",
+    "new": "─É├án t├¡nh_1.m4a"
+  },
+  {
+    "target": "\"word\": \"L╞░ß╗ún  then\",\r\n                \"meaning\": \"M├║a then\",\r\n                \"description\": \"biß╗âu diß╗àn trong lß╗à.\",\r\n                \"audio\": \"M├║a then.m4a\"\r\n              }",
+    "replacement": "\"word\": \"L╞░ß╗ún  then\",\r\n                \"meaning\": \"M├║a then\",\r\n                \"description\": \"biß╗âu diß╗àn trong lß╗à.\",\r\n                \"audio\": \"M├║a then_1.m4a\"\r\n              }",
+    "word": "L╞░ß╗ún  then",
+    "meaning": "M├║a then",
+    "old": "M├║a then.m4a",
+    "new": "M├║a then_1.m4a"
+  },
+  {
+    "target": "\"word\": \"Sli\",\r\n                \"meaning\": \"H├ít sli\",\r\n                \"description\": \"h├ít giao duy├¬n.\",\r\n                \"audio\": \"H├ít sli.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Sli\",\r\n                \"meaning\": \"H├ít sli\",\r\n                \"description\": \"h├ít giao duy├¬n.\",\r\n                \"audio\": \"H├ít sli_1.m4a\"\r\n              }",
+    "word": "Sli",
+    "meaning": "H├ít sli",
+    "old": "H├ít sli.m4a",
+    "new": "H├ít sli_1.m4a"
+  },
+  {
+    "target": "\"word\": \"L╞░ß╗ún\",\r\n                \"meaning\": \"H├ít l╞░ß╗ún\",\r\n                \"description\": \"h├ít ─æß╗æi ─æ├íp.\",\r\n                \"audio\": \"H├ít l╞░ß╗ún.m4a\"\r\n              }",
+    "replacement": "\"word\": \"L╞░ß╗ún\",\r\n                \"meaning\": \"H├ít l╞░ß╗ún\",\r\n                \"description\": \"h├ít ─æß╗æi ─æ├íp.\",\r\n                \"audio\": \"H├ít l╞░ß╗ún_1.m4a\"\r\n              }",
+    "word": "L╞░ß╗ún",
+    "meaning": "H├ít l╞░ß╗ún",
+    "old": "H├ít l╞░ß╗ún.m4a",
+    "new": "H├ít l╞░ß╗ún_1.m4a"
+  },
+  {
+    "target": "\"word\": \"L╞░ß╗ún dß║úo\",\r\n                \"meaning\": \"L╞░ß╗ún gß╗ìi\",\r\n                \"description\": \"h├ít mß╗¥i.\",\r\n                \"audio\": \"L╞░ß╗ún gß╗ìi.m4a\"\r\n              }",
+    "replacement": "\"word\": \"L╞░ß╗ún dß║úo\",\r\n                \"meaning\": \"L╞░ß╗ún gß╗ìi\",\r\n                \"description\": \"h├ít mß╗¥i.\",\r\n                \"audio\": \"L╞░ß╗ún gß╗ìi_1.m4a\"\r\n              }",
+    "word": "L╞░ß╗ún dß║úo",
+    "meaning": "L╞░ß╗ún gß╗ìi",
+    "old": "L╞░ß╗ún gß╗ìi.m4a",
+    "new": "L╞░ß╗ún gß╗ìi_1.m4a"
+  },
+  {
+    "target": "\"word\": \"L╞░ß╗ún ─æiß║┐p\",\r\n                \"meaning\": \"L╞░ß╗ún th╞░╞íng\",\r\n                \"description\": \"h├ít t├¼nh cß║úm.\",\r\n                \"audio\": \"L╞░ß╗ún th╞░╞íng.m4a\"\r\n              }",
+    "replacement": "\"word\": \"L╞░ß╗ún ─æiß║┐p\",\r\n                \"meaning\": \"L╞░ß╗ún th╞░╞íng\",\r\n                \"description\": \"h├ít t├¼nh cß║úm.\",\r\n                \"audio\": \"L╞░ß╗ún th╞░╞íng_1.m4a\"\r\n              }",
+    "word": "L╞░ß╗ún ─æiß║┐p",
+    "meaning": "L╞░ß╗ún th╞░╞íng",
+    "old": "L╞░ß╗ún th╞░╞íng.m4a",
+    "new": "L╞░ß╗ún th╞░╞íng_1.m4a"
+  },
+  {
+    "target": "\"word\": \"T├¡nh tß║⌐u\",\r\n                \"meaning\": \"─É├án t├¡nh\",\r\n                \"description\": \"nhß║íc cß╗Ñ d├óy.\",\r\n                \"audio\": \"─É├án t├¡nh.m4a\"\r\n              }",
+    "replacement": "\"word\": \"T├¡nh tß║⌐u\",\r\n                \"meaning\": \"─É├án t├¡nh\",\r\n                \"description\": \"nhß║íc cß╗Ñ d├óy.\",\r\n                \"audio\": \"─É├án t├¡nh_1.m4a\"\r\n              }",
+    "word": "T├¡nh tß║⌐u",
+    "meaning": "─É├án t├¡nh",
+    "old": "─É├án t├¡nh.m4a",
+    "new": "─É├án t├¡nh_1.m4a"
+  },
+  {
+    "target": "\"word\": \"ngh├⌐ tß╗òng\",\r\n                \"meaning\": \"Trß╗æng\",\r\n                \"description\": \"giß╗» nhß╗ïp.\",\r\n                \"audio\": \"Trß╗æng.m4a\"\r\n              }",
+    "replacement": "\"word\": \"ngh├⌐ tß╗òng\",\r\n                \"meaning\": \"Trß╗æng\",\r\n                \"description\": \"giß╗» nhß╗ïp.\",\r\n                \"audio\": \"Trß╗æng_1.m4a\"\r\n              }",
+    "word": "ngh├⌐ tß╗òng",
+    "meaning": "Trß╗æng",
+    "old": "Trß╗æng.m4a",
+    "new": "Trß╗æng_1.m4a"
+  },
+  {
+    "target": "\"word\": \"M├íc thanh la\",\r\n                \"meaning\": \"Thanh la\",\r\n                \"description\": \"nhß║íc cß╗Ñ kim loß║íi.\",\r\n                \"audio\": \"Thanh la.m4a\"\r\n              }",
+    "replacement": "\"word\": \"M├íc thanh la\",\r\n                \"meaning\": \"Thanh la\",\r\n                \"description\": \"nhß║íc cß╗Ñ kim loß║íi.\",\r\n                \"audio\": \"Thanh la_1.m4a\"\r\n              }",
+    "word": "M├íc thanh la",
+    "meaning": "Thanh la",
+    "old": "Thanh la.m4a",
+    "new": "Thanh la_1.m4a"
+  },
+  {
+    "target": "\"word\": \"Slß╗¡a\",\r\n                \"meaning\": \"├üo\",\r\n                \"description\": \"trang phß╗Ñc ch├¡nh.\",\r\n                \"audio\": \"├üo.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Slß╗¡a\",\r\n                \"meaning\": \"├üo\",\r\n                \"description\": \"trang phß╗Ñc ch├¡nh.\",\r\n                \"audio\": \"├üo_1.m4a\"\r\n              }",
+    "word": "Slß╗¡a",
+    "meaning": "├üo",
+    "old": "├üo.m4a",
+    "new": "├üo_1.m4a"
+  },
+  {
+    "target": "\"word\": \"Slß╗¡a ch├ám\",\r\n                \"meaning\": \"├üo ch├ám\",\r\n                \"description\": \"├ío nhuß╗Öm ch├ám.\",\r\n                \"audio\": \"├üo ch├ám.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Slß╗¡a ch├ám\",\r\n                \"meaning\": \"├üo ch├ám\",\r\n                \"description\": \"├ío nhuß╗Öm ch├ám.\",\r\n                \"audio\": \"├üo ch├ám_1.m4a\"\r\n              }",
+    "word": "Slß╗¡a ch├ám",
+    "meaning": "├üo ch├ám",
+    "old": "├üo ch├ám.m4a",
+    "new": "├üo ch├ám_1.m4a"
+  },
+  {
+    "target": "\"word\": \"kh├│a ch├ám\",\r\n                \"meaning\": \"Quß║ºn\",\r\n                \"description\": \"trang phß╗Ñc d╞░ß╗¢i.\",\r\n                \"audio\": \"Quß║ºn.m4a\"\r\n              }",
+    "replacement": "\"word\": \"kh├│a ch├ám\",\r\n                \"meaning\": \"Quß║ºn\",\r\n                \"description\": \"trang phß╗Ñc d╞░ß╗¢i.\",\r\n                \"audio\": \"Quß║ºn_1.m4a\"\r\n              }",
+    "word": "kh├│a ch├ám",
+    "meaning": "Quß║ºn",
+    "old": "Quß║ºn.m4a",
+    "new": "Quß║ºn_1.m4a"
+  },
+  {
+    "target": "\"word\": \"Kh├ón hß╗òm bß║úu\",\r\n                \"meaning\": \"Kh─ân ─æß╗Öi ─æß║ºu\",\r\n                \"description\": \"phß╗Ñ nß╗».\",\r\n                \"audio\": \"Kh─ân ─æß╗Öi ─æß║ºu.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Kh├ón hß╗òm bß║úu\",\r\n                \"meaning\": \"Kh─ân ─æß╗Öi ─æß║ºu\",\r\n                \"description\": \"phß╗Ñ nß╗».\",\r\n                \"audio\": \"Kh─ân ─æß╗Öi ─æß║ºu_1.m4a\"\r\n              }",
+    "word": "Kh├ón hß╗òm bß║úu",
+    "meaning": "Kh─ân ─æß╗Öi ─æß║ºu",
+    "old": "Kh─ân ─æß╗Öi ─æß║ºu.m4a",
+    "new": "Kh─ân ─æß╗Öi ─æß║ºu_1.m4a"
+  },
+  {
+    "target": "\"word\": \"Rß║╖ng n─âng\",\r\n                \"meaning\": \"Thß║»t l╞░ng\",\r\n                \"description\": \"giß╗» ├ío.\",\r\n                \"audio\": \"Thß║»t l╞░ng.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Rß║╖ng n─âng\",\r\n                \"meaning\": \"Thß║»t l╞░ng\",\r\n                \"description\": \"giß╗» ├ío.\",\r\n                \"audio\": \"Thß║»t l╞░ng_1.m4a\"\r\n              }",
+    "word": "Rß║╖ng n─âng",
+    "meaning": "Thß║»t l╞░ng",
+    "old": "Thß║»t l╞░ng.m4a",
+    "new": "Thß║»t l╞░ng_1.m4a"
+  },
+  {
+    "target": "\"word\": \"Pß╗¥ß║úi thß╗ò cß║⌐m\",\r\n                \"meaning\": \"Vß║úi thß╗ò cß║⌐m\",\r\n                \"description\": \"sß║ún phß║⌐m dß╗çt.\",\r\n                \"audio\": \"Vß║úi thß╗ò cß║⌐m.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Pß╗¥ß║úi thß╗ò cß║⌐m\",\r\n                \"meaning\": \"Vß║úi thß╗ò cß║⌐m\",\r\n                \"description\": \"sß║ún phß║⌐m dß╗çt.\",\r\n                \"audio\": \"Vß║úi thß╗ò cß║⌐m_1.m4a\"\r\n              }",
+    "word": "Pß╗¥ß║úi thß╗ò cß║⌐m",
+    "meaning": "Vß║úi thß╗ò cß║⌐m",
+    "old": "Vß║úi thß╗ò cß║⌐m.m4a",
+    "new": "Vß║úi thß╗ò cß║⌐m_1.m4a"
+  },
+  {
+    "target": "\"word\": \"L├ái\",\r\n                \"meaning\": \"Hoa v─ân\",\r\n                \"description\": \"hß╗ìa tiß║┐t.\",\r\n                \"audio\": \"Hoa v─ân.m4a\"\r\n              }",
+    "replacement": "\"word\": \"L├ái\",\r\n                \"meaning\": \"Hoa v─ân\",\r\n                \"description\": \"hß╗ìa tiß║┐t.\",\r\n                \"audio\": \"Hoa v─ân_1.m4a\"\r\n              }",
+    "word": "L├ái",
+    "meaning": "Hoa v─ân",
+    "old": "Hoa v─ân.m4a",
+    "new": "Hoa v─ân_1.m4a"
+  },
+  {
+    "target": "\"word\": \"─én khung dß╗çt\",\r\n                \"meaning\": \"Khung cß╗¡i\",\r\n                \"description\": \"c├┤ng cß╗Ñ.\",\r\n                \"audio\": \"Khung cß╗¡i.m4a\"\r\n              }",
+    "replacement": "\"word\": \"─én khung dß╗çt\",\r\n                \"meaning\": \"Khung cß╗¡i\",\r\n                \"description\": \"c├┤ng cß╗Ñ.\",\r\n                \"audio\": \"Khung cß╗¡i_1.m4a\"\r\n              }",
+    "word": "─én khung dß╗çt",
+    "meaning": "Khung cß╗¡i",
+    "old": "Khung cß╗¡i.m4a",
+    "new": "Khung cß╗¡i_1.m4a"
+  },
+  {
+    "target": "\"word\": \"M├áu ch├ám\",\r\n                \"meaning\": \"M├áu ch├ám\",\r\n                \"description\": \"m├áu ─æß║╖c tr╞░ng nhß║Ñt.\",\r\n                \"audio\": \"M├áu ch├ám.m4a\"\r\n              }",
+    "replacement": "\"word\": \"M├áu ch├ám\",\r\n                \"meaning\": \"M├áu ch├ám\",\r\n                \"description\": \"m├áu ─æß║╖c tr╞░ng nhß║Ñt.\",\r\n                \"audio\": \"M├áu ch├ám_1.m4a\"\r\n              }",
+    "word": "M├áu ch├ám",
+    "meaning": "M├áu ch├ám",
+    "old": "M├áu ch├ám.m4a",
+    "new": "M├áu ch├ám_1.m4a"
+  },
+  {
+    "target": "\"word\": \"M├áu ─æ─âm\",\r\n                \"meaning\": \"M├áu ─æen\",\r\n                \"description\": \"m├áu chß╗º ─æß║ío.\",\r\n                \"audio\": \"M├áu ─æen.m4a\"\r\n              }",
+    "replacement": "\"word\": \"M├áu ─æ─âm\",\r\n                \"meaning\": \"M├áu ─æen\",\r\n                \"description\": \"m├áu chß╗º ─æß║ío.\",\r\n                \"audio\": \"M├áu ─æen_1.m4a\"\r\n              }",
+    "word": "M├áu ─æ─âm",
+    "meaning": "M├áu ─æen",
+    "old": "M├áu ─æen.m4a",
+    "new": "M├áu ─æen_1.m4a"
+  },
+  {
+    "target": "\"word\": \"M├áu khao\",\r\n                \"meaning\": \"M├áu trß║»ng\",\r\n                \"description\": \"m├áu phß╗Ñ.\",\r\n                \"audio\": \"M├áu trß║»ng.m4a\"\r\n              }",
+    "replacement": "\"word\": \"M├áu khao\",\r\n                \"meaning\": \"M├áu trß║»ng\",\r\n                \"description\": \"m├áu phß╗Ñ.\",\r\n                \"audio\": \"M├áu trß║»ng_1.m4a\"\r\n              }",
+    "word": "M├áu khao",
+    "meaning": "M├áu trß║»ng",
+    "old": "M├áu trß║»ng.m4a",
+    "new": "M├áu trß║»ng_1.m4a"
+  },
+  {
+    "target": "\"word\": \"Nhß╗ìm ch├ám\",\r\n                \"meaning\": \"Nhuß╗Öm ch├ám\",\r\n                \"description\": \"kß╗╣ thuß║¡t nhuß╗Öm.\",\r\n                \"audio\": \"Nhuß╗Öm ch├ám.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Nhß╗ìm ch├ám\",\r\n                \"meaning\": \"Nhuß╗Öm ch├ám\",\r\n                \"description\": \"kß╗╣ thuß║¡t nhuß╗Öm.\",\r\n                \"audio\": \"Nhuß╗Öm ch├ám_1.m4a\"\r\n              }",
+    "word": "Nhß╗ìm ch├ám",
+    "meaning": "Nhuß╗Öm ch├ám",
+    "old": "Nhuß╗Öm ch├ám.m4a",
+    "new": "Nhuß╗Öm ch├ám_1.m4a"
+  },
+  {
+    "target": "\"word\": \"B├ó╞░ ch├ám\",\r\n                \"meaning\": \"L├í ch├ám\",\r\n                \"description\": \"nguy├¬n liß╗çu.\",\r\n                \"audio\": \"L├í ch├ám.m4a\"\r\n              }",
+    "replacement": "\"word\": \"B├ó╞░ ch├ám\",\r\n                \"meaning\": \"L├í ch├ám\",\r\n                \"description\": \"nguy├¬n liß╗çu.\",\r\n                \"audio\": \"L├í ch├ám_1.m4a\"\r\n              }",
+    "word": "B├ó╞░ ch├ám",
+    "meaning": "L├í ch├ám",
+    "old": "L├í ch├ám.m4a",
+    "new": "L├í ch├ám_1.m4a"
+  },
+  {
+    "target": "\"word\": \"Nß║╖m ch├ám\",\r\n                \"meaning\": \"N╞░ß╗¢c ch├ám\",\r\n                \"description\": \"dung dß╗ïch nhuß╗Öm.\",\r\n                \"audio\": \"N╞░ß╗¢c ch├ám.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Nß║╖m ch├ám\",\r\n                \"meaning\": \"N╞░ß╗¢c ch├ám\",\r\n                \"description\": \"dung dß╗ïch nhuß╗Öm.\",\r\n                \"audio\": \"N╞░ß╗¢c ch├ám_1.m4a\"\r\n              }",
+    "word": "Nß║╖m ch├ám",
+    "meaning": "N╞░ß╗¢c ch├ám",
+    "old": "N╞░ß╗¢c ch├ám.m4a",
+    "new": "N╞░ß╗¢c ch├ám_1.m4a"
+  },
+  {
+    "target": "\"word\": \"Lß╗Ñc\",\r\n                \"meaning\": \"Con\",\r\n                \"description\": \"con c├íi n├│i chung.\",\r\n                \"audio\": \"Con.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Lß╗Ñc\",\r\n                \"meaning\": \"Con\",\r\n                \"description\": \"con c├íi n├│i chung.\",\r\n                \"audio\": \"_Con.m4a\"\r\n              }",
+    "word": "Lß╗Ñc",
+    "meaning": "Con",
+    "old": "Con.m4a",
+    "new": "_Con.m4a"
+  },
+  {
+    "target": "\"word\": \"Lß╗Ñc b├ío\",\r\n                \"meaning\": \"Con trai.\",\r\n                \"description\": \"\",\r\n                \"audio\": \"Con trai..m4a\"\r\n              }",
+    "replacement": "\"word\": \"Lß╗Ñc b├ío\",\r\n                \"meaning\": \"Con trai.\",\r\n                \"description\": \"\",\r\n                \"audio\": \"Con trai.m4a\"\r\n              }",
+    "word": "Lß╗Ñc b├ío",
+    "meaning": "Con trai.",
+    "old": "Con trai..m4a",
+    "new": "Con trai.m4a"
+  },
+  {
+    "target": "\"word\": \"Cß║í lß╗Ñc\",\r\n                \"meaning\": \"Bß║úo ban\",\r\n                \"description\": \"nhß║»c nhß╗ƒ ─æiß╗üu ─æ├║ng.\",\r\n                \"audio\": \"Bß║úo ban.m4a\"\r\n              }",
+    "replacement": "\"word\": \"Cß║í lß╗Ñc\",\r\n                \"meaning\": \"Bß║úo ban\",\r\n                \"description\": \"nhß║»c nhß╗ƒ ─æiß╗üu ─æ├║ng.\",\r\n                \"audio\": \"Bß║úo ban .m4a\"\r\n              }",
+    "word": "Cß║í lß╗Ñc",
+    "meaning": "Bß║úo ban",
+    "old": "Bß║úo ban.m4a",
+    "new": "Bß║úo ban .m4a"
+  }
+]

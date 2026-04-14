@@ -150,9 +150,9 @@ export const dictionaryData = [
               },
               {
                 "word": "Mạc bừa",
-                "meaning": "cái Bừa",
+                "meaning": "Cái bừa",
                 "description": "làm tơi và san phẳng đất sau khi cày.",
-                "audio": "cái Bừa.m4a"
+                "audio": "Cái bừa.m4a"
               },
               {
                 "word": "Mạc cốc",
@@ -176,7 +176,7 @@ export const dictionaryData = [
                 "word": "Mạc khau",
                 "meaning": "cái Gùi / gánh",
                 "description": "mang nông sản, củi hoặc đồ vật khi đi nương rẫy.",
-                "audio": "cái Gùi / gánh.m4a"
+                "audio": "Cái gùi.m4a"
               }
             ]
           },
@@ -216,7 +216,7 @@ export const dictionaryData = [
                 "word": "Ăn khung dệt",
                 "meaning": "Khung cửi",
                 "description": "dùng để dệt vải thổ cẩm, tạo trang phục truyền thống của người Tày.",
-                "audio": "Khung cửi.m4a"
+                "audio": "Khung cửi_1.m4a"
               },
               {
                 "word": "Ăn khiêm mây",
@@ -387,7 +387,7 @@ export const dictionaryData = [
                 "word": "Ngòi",
                 "meaning": "trông",
                 "description": "trông coi",
-                "audio": "trông.m4a"
+                "audio": "Trông.m4a"
               },
               {
                 "word": "Xúng",
@@ -612,13 +612,13 @@ export const dictionaryData = [
                 "word": "Fất",
                 "meaning": "cay",
                 "description": "Vị nóng, gây cảm giác cay.",
-                "audio": "cay.m4a"
+                "audio": "Cay.m4a"
               },
               {
                 "word": "Tấm",
                 "meaning": "chua",
                 "description": "vị chua, có độ axit",
-                "audio": "chua.m4a"
+                "audio": "Chua.m4a"
               },
               {
                 "word": "Hoan",
@@ -912,7 +912,7 @@ export const dictionaryData = [
                 "word": "Hat then",
                 "meaning": "hát then",
                 "description": "hình thức hát truyền thống của người Tày.",
-                "audio": "hát then.m4a"
+                "audio": "Hát then.m4a"
               },
               {
                 "word": "Bán rườn",
@@ -941,7 +941,7 @@ export const dictionaryData = [
                 "word": "Hứ căn",
                 "meaning": "cho nhau",
                 "description": "cho nhau, chia sẻ với nhau.",
-                "audio": "cho nhau.m4a"
+                "audio": "Cho nhau.m4a"
               },
               {
                 "word": "Dưm căn",
@@ -970,7 +970,7 @@ export const dictionaryData = [
                 "word": "Chia căn",
                 "meaning": "chia nhau",
                 "description": "chia sẻ, san sẻ cho nhau.",
-                "audio": "chia nhau.m4a"
+                "audio": "Chia nhau.m4a"
               },
               {
                 "word": "Chứ căn",
@@ -1057,7 +1057,7 @@ export const dictionaryData = [
                 "word": "Tặt bàn phạ",
                 "meaning": "Cúng trời",
                 "description": "cầu phúc.",
-                "audio": "Cầu phúc.m4a"
+                "audio": "Cúng trời.m4a"
               },
               {
                 "word": "Tặt bàn tâm",
@@ -1258,7 +1258,7 @@ export const dictionaryData = [
                 "word": "Pựt Tả Phủ",
                 "meaning": "Cúng Tả Phủ",
                 "description": "dâng lễ cầu phúc, cầu tài lộc.",
-                "audio": "Cúng Tả Phủ.m4a"
+                "audio": "Cúng tả phủ..m4a"
               },
               {
                 "word": "Pây slặp pháo",
@@ -1270,7 +1270,7 @@ export const dictionaryData = [
                 "word": "Pây slặp",
                 "meaning": "Đi rước",
                 "description": "tham gia đoàn rước.",
-                "audio": "Đi rước.m4a"
+                "audio": "Đi rước..m4a"
               },
               {
                 "word": "Páo còn",
@@ -1288,7 +1288,7 @@ export const dictionaryData = [
                 "word": "Mủa sư tử mèo",
                 "meaning": "Múa sư tử mèo",
                 "description": "biểu diễn trong lễ hội.",
-                "audio": "Múa sư tử mèo.m4a"
+                "audio": "Múa sư tử mèo_1.m4a"
               },
               {
                 "word": "Kọn tổng",
@@ -1400,25 +1400,25 @@ export const dictionaryData = [
                 "word": "Tiển khẩu",
                 "meaning": "Dâng cơm",
                 "description": "dâng lễ vật lên tổ tiên.",
-                "audio": "Dâng cơm.m4a"
+                "audio": "Dâng cơm_1.m4a"
               },
               {
                 "word": "Nẩng khẩu nua",
                 "meaning": "Đồ xôi",
                 "description": "nấu xôi từ gạo mới.",
-                "audio": "Đồ xôi.m4a"
+                "audio": "Đồ xôi_1.m4a"
               },
               {
                 "word": "Tiẻm cáy",
                 "meaning": "Luộc gà",
                 "description": "chuẩn bị lễ cúng.",
-                "audio": "Luộc gà.m4a"
+                "audio": "Luộc gà_1.m4a"
               },
               {
                 "word": "Tàng khẩu",
                 "meaning": "Mâm cơm",
                 "description": "bày biện đồ ăn.",
-                "audio": "Mâm cơm.m4a"
+                "audio": "Mâm cơm_1.m4a"
               },
               {
                 "word": "Páy mời",
@@ -1430,7 +1430,7 @@ export const dictionaryData = [
                 "word": "Páy tạ",
                 "meaning": "Tạ ơn",
                 "description": "cảm ơn trời đất, tổ tiên.",
-                "audio": "Tạ ơn.m4a"
+                "audio": "Tạ ơn_1.m4a"
               },
               {
                 "word": "Slương tổ",
@@ -1454,7 +1454,7 @@ export const dictionaryData = [
                 "word": "Lượn cọi",
                 "meaning": "Hát vui",
                 "description": "sinh hoạt văn hóa sau lễ.",
-                "audio": "Hát vui.m4a"
+                "audio": "Hát vui_1.m4a"
               }
             ]
           },
@@ -1542,7 +1542,7 @@ export const dictionaryData = [
                 "word": "Khả non",
                 "meaning": "Giết sâu",
                 "description": "tiêu diệt sâu bọ.",
-                "audio": "Giết sâu.m4a"
+                "audio": "Giết sâu_1.m4a"
               },
               {
                 "word": "Kin xáy",
@@ -1560,37 +1560,37 @@ export const dictionaryData = [
                 "word": "Tò bâ’u",
                 "meaning": "Hái lá",
                 "description": "lấy lá cây làm thuốc.",
-                "audio": "Hái lá.m4a"
+                "audio": "Hái lá_1.m4a"
               },
               {
                 "word": "Pác rừng",
                 "meaning": "Lá rừng",
                 "description": "nguyên liệu tự nhiên.",
-                "audio": "Lá rừng.m4a"
+                "audio": "Lá rừng_1.m4a"
               },
               {
                 "word": "Áp nhả",
                 "meaning": "Tắm lá",
                 "description": "tắm bằng nước lá.",
-                "audio": "Tắm lá.m4a"
+                "audio": "Tắm lá_1.m4a"
               },
               {
                 "word": "Pây rẫy",
                 "meaning": "Ra rẫy",
                 "description": "kiểm tra cây trồng.",
-                "audio": "Ra rẫy.m4a"
+                "audio": "Ra rẫy_1.m4a"
               },
               {
                 "word": "nhòm mạ",
                 "meaning": "Xem lúa",
                 "description": "theo dõi mùa vụ.",
-                "audio": "Xem lúa.m4a"
+                "audio": "Xem lúa_1.m4a"
               },
               {
                 "word": "tẹp non",
                 "meaning": "Xua sâu",
                 "description": "bảo vệ mùa màng.",
-                "audio": "Xua sâu.m4a"
+                "audio": "Xua sâu_1.m4a"
               },
               {
                 "word": "Cúng mường",
@@ -1602,13 +1602,13 @@ export const dictionaryData = [
                 "word": "Kin lèng",
                 "meaning": "Ăn nhẹ",
                 "description": "ăn sáng theo tục lệ.",
-                "audio": "Ăn nhẹ.m4a"
+                "audio": "Ăn nhẹ_1.m4a"
               },
               {
                 "word": "cần hắt slày",
                 "meaning": "Người làm nương",
                 "description": "tham gia lao động.",
-                "audio": "Người làm nương.m4a"
+                "audio": "Người làm nương_1.m4a"
               }
             ]
           }
@@ -1630,25 +1630,25 @@ export const dictionaryData = [
                 "word": "Pụt then",
                 "meaning": "Thầy then",
                 "description": "người làm lễ.",
-                "audio": "Thầy then.m4a"
+                "audio": "Thầy then_1.m4a"
               },
               {
                 "word": "Lời then",
                 "meaning": "Lời hát then",
                 "description": "nội dung nghi lễ.",
-                "audio": "Lời hát then.m4a"
+                "audio": "Lời hát then_1.m4a"
               },
               {
                 "word": "Tính tẩu",
                 "meaning": "Đàn tính",
                 "description": "nhạc cụ chính.",
-                "audio": "Đàn tính.m4a"
+                "audio": "Đàn tính_1.m4a"
               },
               {
                 "word": "Lượn  then",
                 "meaning": "Múa then",
                 "description": "biểu diễn trong lễ.",
-                "audio": "Múa then.m4a"
+                "audio": "Múa then_1.m4a"
               }
             ]
           },
@@ -1659,25 +1659,25 @@ export const dictionaryData = [
                 "word": "Sli",
                 "meaning": "Hát sli",
                 "description": "hát giao duyên.",
-                "audio": "Hát sli.m4a"
+                "audio": "Hát sli_1.m4a"
               },
               {
                 "word": "Lượn",
                 "meaning": "Hát lượn",
                 "description": "hát đối đáp.",
-                "audio": "Hát lượn.m4a"
+                "audio": "Hát lượn_1.m4a"
               },
               {
                 "word": "Lượn dảo",
                 "meaning": "Lượn gọi",
                 "description": "hát mời.",
-                "audio": "Lượn gọi.m4a"
+                "audio": "Lượn gọi_1.m4a"
               },
               {
                 "word": "Lượn điếp",
                 "meaning": "Lượn thương",
                 "description": "hát tình cảm.",
-                "audio": "Lượn thương.m4a"
+                "audio": "Lượn thương_1.m4a"
               }
             ]
           },
@@ -1688,13 +1688,13 @@ export const dictionaryData = [
                 "word": "Tính tẩu",
                 "meaning": "Đàn tính",
                 "description": "nhạc cụ dây.",
-                "audio": "Đàn tính.m4a"
+                "audio": "Đàn tính_1.m4a"
               },
               {
                 "word": "nghé tổng",
                 "meaning": "Trống",
                 "description": "giữ nhịp.",
-                "audio": "Trống.m4a"
+                "audio": "Trống_1.m4a"
               },
               {
                 "word": "nghé roọc",
@@ -1706,7 +1706,7 @@ export const dictionaryData = [
                 "word": "Mác thanh la",
                 "meaning": "Thanh la",
                 "description": "nhạc cụ kim loại.",
-                "audio": "Thanh la.m4a"
+                "audio": "Thanh la_1.m4a"
               }
             ]
           },
@@ -1717,31 +1717,31 @@ export const dictionaryData = [
                 "word": "Slửa",
                 "meaning": "Áo",
                 "description": "trang phục chính.",
-                "audio": "Áo.m4a"
+                "audio": "Áo_1.m4a"
               },
               {
                 "word": "Slửa chàm",
                 "meaning": "Áo chàm",
                 "description": "áo nhuộm chàm.",
-                "audio": "Áo chàm.m4a"
+                "audio": "Áo chàm_1.m4a"
               },
               {
                 "word": "khóa chàm",
                 "meaning": "Quần",
                 "description": "trang phục dưới.",
-                "audio": "Quần.m4a"
+                "audio": "Quần_1.m4a"
               },
               {
                 "word": "Khân hổm bảu",
                 "meaning": "Khăn đội đầu",
                 "description": "phụ nữ.",
-                "audio": "Khăn đội đầu.m4a"
+                "audio": "Khăn đội đầu_1.m4a"
               },
               {
                 "word": "Rặng năng",
                 "meaning": "Thắt lưng",
                 "description": "giữ áo.",
-                "audio": "Thắt lưng.m4a"
+                "audio": "Thắt lưng_1.m4a"
               }
             ]
           },
@@ -1752,19 +1752,19 @@ export const dictionaryData = [
                 "word": "Pờải thổ cẩm",
                 "meaning": "Vải thổ cẩm",
                 "description": "sản phẩm dệt.",
-                "audio": "Vải thổ cẩm.m4a"
+                "audio": "Vải thổ cẩm_1.m4a"
               },
               {
                 "word": "Lài",
                 "meaning": "Hoa văn",
                 "description": "họa tiết.",
-                "audio": "Hoa văn.m4a"
+                "audio": "Hoa văn_1.m4a"
               },
               {
                 "word": "Ăn khung dệt",
                 "meaning": "Khung cửi",
                 "description": "công cụ.",
-                "audio": "Khung cửi.m4a"
+                "audio": "Khung cửi_1.m4a"
               }
             ]
           },
@@ -1775,37 +1775,37 @@ export const dictionaryData = [
                 "word": "Màu chàm",
                 "meaning": "Màu chàm",
                 "description": "màu đặc trưng nhất.",
-                "audio": "Màu chàm.m4a"
+                "audio": "Màu chàm_1.m4a"
               },
               {
                 "word": "Màu đăm",
                 "meaning": "Màu đen",
                 "description": "màu chủ đạo.",
-                "audio": "Màu đen.m4a"
+                "audio": "Màu đen_1.m4a"
               },
               {
                 "word": "Màu khao",
                 "meaning": "Màu trắng",
                 "description": "màu phụ.",
-                "audio": "Màu trắng.m4a"
+                "audio": "Màu trắng_1.m4a"
               },
               {
                 "word": "Nhọm chàm",
                 "meaning": "Nhuộm chàm",
                 "description": "kỹ thuật nhuộm.",
-                "audio": "Nhuộm chàm.m4a"
+                "audio": "Nhuộm chàm_1.m4a"
               },
               {
                 "word": "Bâư chàm",
                 "meaning": "Lá chàm",
                 "description": "nguyên liệu.",
-                "audio": "Lá chàm.m4a"
+                "audio": "Lá chàm_1.m4a"
               },
               {
                 "word": "Nặm chàm",
                 "meaning": "Nước chàm",
                 "description": "dung dịch nhuộm.",
-                "audio": "Nước chàm.m4a"
+                "audio": "Nước chàm_1.m4a"
               }
             ]
           }
@@ -1844,13 +1844,13 @@ export const dictionaryData = [
                 "word": "Lục",
                 "meaning": "Con",
                 "description": "con cái nói chung.",
-                "audio": "Con.m4a"
+                "audio": "_Con.m4a"
               },
               {
                 "word": "Lục báo",
                 "meaning": "Con trai.",
                 "description": "",
-                "audio": "Con trai..m4a"
+                "audio": "Con trai.m4a"
               },
               {
                 "word": "Lục slao",
@@ -2045,7 +2045,7 @@ export const dictionaryData = [
                 "word": "Cạ lục",
                 "meaning": "Bảo ban",
                 "description": "nhắc nhở điều đúng.",
-                "audio": "Bảo ban.m4a"
+                "audio": "Bảo ban .m4a"
               },
               {
                 "word": "Pang",
