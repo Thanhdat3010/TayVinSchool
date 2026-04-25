@@ -70,10 +70,11 @@ export const useMultiplayer = () => {
 
   useEffect(() => {
     loadFb();
+    const pid = pidRef.current;
     return () => {
       stopListeners();
       if (roomCodeRef.current && fbRemove && isFirebaseReady()) {
-        fbRemove(fbRef(db, `rooms/${roomCodeRef.current}/players/${pidRef.current}`)).catch(()=>{});
+        fbRemove(fbRef(db, `rooms/${roomCodeRef.current}/players/${pid}`)).catch(()=>{});
       }
     };
   }, [stopListeners]);

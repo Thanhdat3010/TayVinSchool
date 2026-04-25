@@ -404,6 +404,7 @@ const ItemInventory = ({ inventory, onUseItem, isFrozen, shieldActive }) => {
   );
 };
 
+// eslint-disable-next-line no-unused-vars
 const ItemMiniGame = ({ item, onComplete, onCancel }) => {
   const [taps, setTaps] = useState(0);
   const [timeLeft, setTimeLeft] = useState(3);
@@ -1527,7 +1528,7 @@ const FlashcardRescue = ({ onExit }) => {
     if (multiplayer.roomCode) {
       multiplayer.syncScore(entry.name, entry.team, entry.score, entry.wolfStrikes || 0, entry.saved, entry.title);
     }
-  }, [leaderboard, playerName, playerTeam, score, screen, sessionSavedIds.length]);
+  }, [leaderboard, playerName, playerTeam, score, screen, sessionSavedIds.length, multiplayer]);
 
   const leaderboardTop = useMemo(
     () => [...leaderboard].sort((a, b) => b.score - a.score || b.saved - a.saved || b.time - a.time).slice(0, 8),
