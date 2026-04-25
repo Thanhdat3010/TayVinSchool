@@ -11,6 +11,7 @@ import {
   VolumeX,
 } from 'lucide-react';
 import { dictionaryData } from './data/dictionaryData';
+import FlashcardRescue from './components/FlashcardRescue';
 
 // ─── Assets ──────────────────────────────────────────────────────────────────
 import logoImg from './assets/logotudientay.png';
@@ -395,6 +396,7 @@ const GlobalSearch = ({ query, setQuery, onClose }) => {
 
 // ─── Main App ─────────────────────────────────────────────────────────────────
 const App = () => {
+  const [pathname, setPathname] = useState(window.location.pathname);
   const [scrollY, setScrollY] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [selectedChapter, setSelectedChapter] = useState(null);
@@ -408,6 +410,32 @@ const App = () => {
     const t = setTimeout(() => setIsLoaded(true), 600);
     return () => { window.removeEventListener('scroll', handleScroll); clearTimeout(t); };
   }, []);
+
+  useEffect(() => {
+    const handlePopState = () => setPathname(window.location.pathname);
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const navigateToFlashcard = () => {
+    if (window.location.pathname !== '/flashcard') {
+      window.history.pushState({}, '', '/flashcard');
+      setPathname('/flashcard');
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  };
+
+  const navigateToHome = () => {
+    if (window.location.pathname !== '/') {
+      window.history.pushState({}, '', '/');
+      setPathname('/');
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  };
+
+  if (pathname === '/flashcard') {
+    return <FlashcardRescue onExit={navigateToHome} />;
+  }
 
   const handleExplore = (chapter, meta) => {
     setSelectedChapter(chapter);
@@ -453,6 +481,13 @@ const App = () => {
         </div>
 
         <div className="flex items-center gap-4 md:gap-8 pointer-events-auto">
+          <button
+            onClick={navigateToFlashcard}
+            className="flex items-center gap-2 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-emerald-300 hover:text-emerald-200 transition-all"
+          >
+            <span className="hidden sm:inline">ĐÁNH THỨC TỪ TÀY</span>
+            <span className="sm:hidden">Flashcard</span>
+          </button>
           <button
             onClick={() => { setShowSearch(true); setSearchQuery(''); }}
             className="flex items-center gap-2 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-white/70 hover:text-yellow-500 transition-all"
@@ -552,6 +587,16 @@ const App = () => {
         >
           <span className="relative z-10 flex items-center gap-3">
             Tra cứu hành trình <ChevronRight size={14} />
+          </span>
+          <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+        </button>
+
+        <button
+          onClick={navigateToFlashcard}
+          className="mt-4 group relative px-10 py-5 bg-emerald-600 text-white font-bold hover:bg-emerald-500 transition-all duration-500 rounded-full tracking-[0.2em] text-[10px] md:text-xs uppercase overflow-hidden"
+        >
+          <span className="relative z-10 flex items-center gap-3">
+            Đánh Thức Từ Tày <ChevronRight size={14} />
           </span>
           <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
         </button>

@@ -1,0 +1,18 @@
+
+> web_tay@0.1.0 build
+> react-scripts build
+
+Creating an optimized production build...
+
+Treating warnings as errors because process.env.CI = true.
+Most CI servers set it automatically.
+
+Failed to compile.
+
+[eslint] 
+src\components\FlashcardRescue.js
+  Line 871:6:   React Hook useCallback has an unnecessary dependency: 'playTone'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
+  Line 871:27:  'playTone' was used before it was defined                                                                           no-use-before-define
+  Line 919:6:   React Hook useCallback has a missing dependency: 'playTone'. Either include it or remove the dependency array       react-hooks/exhaustive-deps
+
+

@@ -1,0 +1,9 @@
+
+> web_tay@0.1.0 build
+> react-scripts build
+
+Failed to compile.
+
+ENOTEMPTY: directory not empty, rmdir 'E:\Code_Projects\TayVinSchool\build\audio'
+
+
