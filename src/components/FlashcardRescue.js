@@ -653,7 +653,14 @@ const HomeScreen = ({
   const [typed, setTyped] = useState('');
   const [tooltipWord, setTooltipWord] = useState(null);
   const [selectedWordId, setSelectedWordId] = useState(null);
-  const [showRules, setShowRules] = useState(false);
+  const [showRules, setShowRules] = useState(() => {
+    return localStorage.getItem('flashcard.hasSeenRules') !== 'true';
+  });
+
+  const closeRules = () => {
+    localStorage.setItem('flashcard.hasSeenRules', 'true');
+    setShowRules(false);
+  };
 
   const title = 'Kho báu bí ẩn cần đánh thức';
 
@@ -866,7 +873,7 @@ const HomeScreen = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={(e) => { if (e.target === e.currentTarget) setShowRules(false); }}
+            onClick={(e) => { if (e.target === e.currentTarget) closeRules(); }}
           >
             <motion.div
               className="rules-modal"
@@ -876,64 +883,65 @@ const HomeScreen = ({
             >
               <div className="rules-header">
                 <div>
-                  <p className="rules-kicker">Luật chơi đêm nay</p>
-                  <h3>Giải cứu từ Tày trước Sói cắn hết lượt</h3>
+                  <p className="rules-kicker">Hướng dẫn chơi dễ hiểu</p>
+                  <h3>Bảo Vệ Kho Tàng Tiếng Tày</h3>
                 </div>
-                <button className="rules-close-x" onClick={() => setShowRules(false)}>✕</button>
+                <button className="rules-close-x" onClick={closeRules}>✕</button>
               </div>
 
               <div className="rules-body">
                 <div className="rules-section">
-                  <p className="rules-subtitle">🎯 Mục tiêu chính:</p>
-                  <p>Cứu được tối thiểu <strong>8 từ Tày</strong> trước khi Sói cắn 3 lần là bạn <strong>THẮNG</strong> và nhận +250 điểm chiến dịch.</p>
+                  <p className="rules-subtitle">🎯 1. Nhiệm vụ của bạn (Mục Tiêu)</p>
+                  <p>Chào mừng đến Bản Làng! Những từ ngữ tiếng Tày đang dần bị lãng quên. Nhiệm vụ của bạn là giải cứu <strong>ít nhất 8 từ</strong> trước khi con Sói Ngôn Ngữ kịp cắn hỏng kho từ 3 lần.</p>
                 </div>
 
                 <div className="rules-section">
-                  <p className="rules-subtitle">🃏 Cách chơi từng lượt:</p>
-                  <p>① Nhìn thẻ từ Tày mặt trước (chữ Tày + danh hiệu vai trò).</p>
-                  <p>② Bấm lật để xem mặt sau (nghĩa tiếng Việt + câu chuyện từ).</p>
-                  <p>③ Chọn 1 trong 3 hành động:</p>
-                  <p className="rules-indent">🔥 Tôi sẽ giữ từ này → +điểm, giữ từ, giảm nguy cơ mất.</p>
-                  <p className="rules-indent">👁 Cho tôi gặp lại → +20 điểm, quay lại sau.</p>
-                  <p className="rules-indent">💀 Tôi chưa biết → -10 điểm, từ này mở ưu tiên cứu lần tới.</p>
+                  <p className="rules-subtitle">🚀 2. Bắt đầu như thế nào?</p>
+                  <p>Ở màn hình chính, bạn hãy:</p>
+                  <p className="rules-indent">• <strong>Nhập tên</strong> và <strong>Chọn Đội</strong> (Phe) để cùng bạn bè đua điểm.</p>
+                  <p className="rules-indent">• Chạm vào một <strong>ngọn lửa sáng</strong> trên cây để ưu tiên cứu từ đó trước.</p>
+                  <p className="rules-indent">• Hoặc bấm ngay nút <strong>🎮 Bắt đầu giải cứu</strong> để vào chơi luôn!</p>
                 </div>
 
                 <div className="rules-section">
-                  <p className="rules-subtitle">🐺 Sói và Mục tiêu Sói:</p>
-                  <p>Cứ mỗi 2 lượt, Sói chọn 1 từ khó và nhắm tới nó. Bạn sẽ thấy cảnh báo đỏ.</p>
-                  <p>Bạn có 2 lượt tiếp theo để PHẢI lật và bấm 🔥 giữ từ đó, nếu không:</p>
-                  <p className="rules-indent">• Từ bị giảm sâu người biết (mất 2 người).</p>
-                  <p className="rules-indent">• Bạn mất 35 điểm + combo reset.</p>
-                  <p className="rules-indent">• Sói +1 vết cắn (nếu 3 vết → THUA).</p>
+                  <p className="rules-subtitle">🃏 3. Cách chơi từng lượt (Rất dễ!)</p>
+                  <p>Mỗi lượt, một thẻ từ tiếng Tày sẽ hiện ra trên màn hình:</p>
+                  <p>① Bấm vào thẻ để <strong>lật thẻ sang mặt sau</strong>, bạn sẽ thấy nghĩa tiếng Việt và câu chuyện của từ đó.</p>
+                  <p>② Chọn 1 trong 3 nút hành động bên dưới:</p>
+                  <p className="rules-indent">🔥 <strong>"Tôi sẽ giữ từ này"</strong>: Chọn khi bạn đã nhớ và muốn cứu từ này (+điểm, từ sẽ an toàn).</p>
+                  <p className="rules-indent">👁 <strong>"Cho tôi gặp lại"</strong>: Chọn khi bạn chưa nhớ lắm và muốn ôn lại từ này sau (+20 điểm).</p>
+                  <p className="rules-indent">💀 <strong>"Từ này tôi chưa biết"</strong>: Chọn khi bạn hoàn toàn chưa biết (bị trừ 10 điểm và ưu tiên học lại lần tới).</p>
                 </div>
 
                 <div className="rules-section">
-                  <p className="rules-subtitle">⚔️ Chơi theo Phe (Team):</p>
-                  <p>Chọn phe ở màn hình chủ. Điểm của bạn được cộng vào tổng điểm phe.</p>
-                  <p>Bảng xếp hạng phe cập nhật real-time khi chơi trên cùng thiết bị.</p>
-                  <p>Dùng vật phẩm để cản trở đối thủ và giúp đồng đội!</p>
+                  <p className="rules-subtitle">🐺 4. Luật quan trọng (Hãy cẩn thận Sói!)</p>
+                  <p>Sói rất ranh ma! Lâu lâu, Sói sẽ <strong>nhắm vào một từ cụ thể</strong> (màn hình sẽ có cảnh báo nháy đỏ).</p>
+                  <p>Bạn có <strong>2 lượt</strong> để lật thẻ và bấm 🔥 <strong>"Tôi sẽ giữ từ này"</strong> cho chính từ đó, nếu không:</p>
+                  <p className="rules-indent">• Sói sẽ cắn 1 nhát! Bạn mất 35 điểm và mất luôn chuỗi Combo điểm thưởng.</p>
+                  <p className="rules-indent">• Nếu Sói cắn đủ 3 lần, bạn sẽ THUA.</p>
                 </div>
 
                 <div className="rules-section">
-                  <p className="rules-subtitle">🎁 Item Đặc Biệt (ngẫu nhiên nhận khi cứu từ):</p>
-                  <p>❄️ <strong>Đóng Băng</strong>: Tạm dừng người chơi khác 5s (chế độ nhóm).</p>
-                  <p>🕷️ <strong>Cướp Điểm</strong>: Lấy 50 điểm từ đối thủ ngẫu nhiên.</p>
-                  <p>🛡️ <strong>Khiên Bảo Vệ</strong>: Tránh được 1 lần Sói cắn tiếp theo.</p>
-                  <p>⚡ <strong>Tăng Tốc</strong>: +100% điểm lượt tiếp theo.</p>
+                  <p className="rules-subtitle">⚔️ 5. Chế độ nhiều người & Vật phẩm</p>
+                  <p>Khi chơi thi đấu, thỉnh thoảng bạn sẽ nhận được Vật Phẩm xịn xò để dùng:</p>
+                  <p className="rules-indent">❄️ <strong>Đóng Băng</strong>: Làm đối thủ bị "đứng hình" không bấm được trong 5 giây!</p>
+                  <p className="rules-indent">🕷️ <strong>Cướp Điểm</strong>: Lén lấy 50 điểm của một người chơi khác.</p>
+                  <p className="rules-indent">🛡️ <strong>Khiên Bảo Vệ</strong>: Giúp bạn chặn được 1 lần Sói cắn. Rất quý giá!</p>
+                  <p className="rules-indent">⚡ <strong>Tăng Tốc</strong>: Lượt tiếp theo điểm sẽ được nhân đôi.</p>
                 </div>
 
                 <div className="rules-section">
-                  <p className="rules-subtitle">🏁 Điều kiện kết thúc:</p>
-                  <p>✅ Cứu ≥8 từ trước hết lượt → <strong>THẮNG</strong> + +250 điểm + lên BXH phe.</p>
-                  <p>❌ Sói cắn 3 lần → <strong>THUA</strong> + vẫn nhận +80 điểm nỗ lực.</p>
+                  <p className="rules-subtitle">🏁 6. Kết thúc game</p>
+                  <p>🏆 <strong>CHIẾN THẮNG</strong>: Bạn cứu đủ 8 từ trước khi Sói cắn 3 lần. Nhận ngay điểm khủng (+250) và vinh danh Đội của bạn!</p>
+                  <p>💀 <strong>THẤT BẠI</strong>: Bị Sói cắn đủ 3 lần. Đừng lo, bạn vẫn nhận được điểm nỗ lực để thử lại vào ván sau!</p>
                 </div>
               </div>
 
               <div className="rules-actions">
-                <button className="rules-start" onClick={() => { setShowRules(false); onStart(selectedWordId); }}>
+                <button className="rules-start" onClick={() => { closeRules(); onStart(selectedWordId); }}>
                   🚀 Đã hiểu, bắt đầu ngay
                 </button>
-                <button className="rules-close" onClick={() => setShowRules(false)}>
+                <button className="rules-close" onClick={closeRules}>
                   Đóng
                 </button>
               </div>
