@@ -144,8 +144,14 @@ const flattenDictionaryWords = () => {
     });
   });
 
-  return result.slice(0, 20).map((word, index) => {
-    const riskScore = RISK_PRESET[index] ?? 30;
+  // SHUFFLE the result array to ensure words change every game session
+  for (let i = result.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+
+  return result.slice(0, 35).map((word, index) => {
+    const riskScore = RISK_PRESET[index % RISK_PRESET.length] ?? 30;
     const knownBy =
       riskScore > 85 ? 1 + (index % 5) :
       riskScore >= 50 ? 40 + ((index * 9) % 22) :
@@ -306,8 +312,8 @@ const TutorialCoach = ({ active, step, onSkip }) => {
   const steps = [
     'Bước 1/4: Hãy chạm vào một ngọn lửa đỏ để chọn từ nguy cấp bạn muốn cứu trước.',
     'Bước 2/4: Tuyệt vời. Bấm "Bắt đầu giải cứu" để vào phiên học.',
-    'Bước 3/4: Chạm vào thẻ để lật sang mặt nghĩa tiếng Việt và câu chuyện từ.',
-    'Bước 4/4: Chọn một hành động bên dưới để tiếp tục chuỗi giải cứu.',
+    'Bước 3/4: Hãy nhập nghĩa tiếng Việt của từ vào ô trống và nhấn Enter.',
+    'Bước 4/4: Nếu trả lời đúng, bạn sẽ cứu được từ đó và nhận điểm thưởng!',
   ];
 
   return (
@@ -905,17 +911,16 @@ const HomeScreen = ({
                 <div className="rules-section">
                   <p className="rules-subtitle">🃏 3. Cách chơi từng lượt (Rất dễ!)</p>
                   <p>Mỗi lượt, một thẻ từ tiếng Tày sẽ hiện ra trên màn hình:</p>
-                  <p>① Bấm vào thẻ để <strong>lật thẻ sang mặt sau</strong>, bạn sẽ thấy nghĩa tiếng Việt và câu chuyện của từ đó.</p>
-                  <p>② Chọn 1 trong 3 nút hành động bên dưới:</p>
-                  <p className="rules-indent">🔥 <strong>"Tôi sẽ giữ từ này"</strong>: Chọn khi bạn đã nhớ và muốn cứu từ này (+điểm, từ sẽ an toàn).</p>
-                  <p className="rules-indent">👁 <strong>"Cho tôi gặp lại"</strong>: Chọn khi bạn chưa nhớ lắm và muốn ôn lại từ này sau (+20 điểm).</p>
-                  <p className="rules-indent">💀 <strong>"Từ này tôi chưa biết"</strong>: Chọn khi bạn hoàn toàn chưa biết (bị trừ 10 điểm và ưu tiên học lại lần tới).</p>
+                  <p>① Hãy <strong>nhập nghĩa tiếng Việt</strong> của từ đó vào ô trống.</p>
+                  <p>② Bấm Enter hoặc nút "Kiểm tra" để xem kết quả.</p>
+                  <p className="rules-indent">✅ <strong>Nhập đúng</strong>: Bạn nhận được điểm, tăng chuỗi Combo và từ đó được giải cứu an toàn.</p>
+                  <p className="rules-indent">❌ <strong>Nhập sai</strong>: Bạn bị trừ 10 điểm. Nếu nhập sai trúng từ mà Sói đang săn, bạn sẽ bị cắn!</p>
                 </div>
 
                 <div className="rules-section">
                   <p className="rules-subtitle">🐺 4. Luật quan trọng (Hãy cẩn thận Sói!)</p>
                   <p>Sói rất ranh ma! Lâu lâu, Sói sẽ <strong>nhắm vào một từ cụ thể</strong> (màn hình sẽ có cảnh báo nháy đỏ).</p>
-                  <p>Bạn có <strong>2 lượt</strong> để lật thẻ và bấm 🔥 <strong>"Tôi sẽ giữ từ này"</strong> cho chính từ đó, nếu không:</p>
+                  <p>Bạn có <strong>2 lượt</strong> để nhập đúng từ đó để đánh đuổi Sói, nếu không:</p>
                   <p className="rules-indent">• Sói sẽ cắn 1 nhát! Bạn mất 35 điểm và mất luôn chuỗi Combo điểm thưởng.</p>
                   <p className="rules-indent">• Nếu Sói cắn đủ 3 lần, bạn sẽ THUA.</p>
                 </div>
@@ -957,10 +962,8 @@ const StudyScreen = ({
   communityCount,
   sessionLearnedCount,
   onKeep,
-  onReview,
   onUnknown,
   step,
-  onCardFlipped,
   score,
   streak,
   maxStreak,
@@ -979,13 +982,45 @@ const StudyScreen = ({
   boostActivated,
   roomPlayers,
   myPid,
+  allWords = [], // Pool to pick distractors from
+  onScoreChange, // Callback to deduct points for hints
 }) => {
-  const [flipped, setFlipped] = useState(false);
+  const [userInput, setUserInput] = useState('');
+  const [feedback, setFeedback] = useState(null); // 'correct', 'wrong'
+  const [showAnswer, setShowAnswer] = useState(false);
+  const [wrongAttempts, setWrongAttempts] = useState(0);
+  const [mcOptions, setMcOptions] = useState([]);
+  const [hintActive, setHintActive] = useState(false);
   const audioRef = useRef(null);
+  const inputRef = useRef(null);
+
+  // Generate 4 multiple choice options (1 correct, 3 random)
+  const generateOptions = useCallback(() => {
+    if (!word || !allWords.length) return [];
+    const correct = word.vi;
+    const others = allWords
+      .filter((w) => w.vi !== correct)
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 3)
+      .map((w) => w.vi);
+    return [correct, ...others].sort(() => 0.5 - Math.random());
+  }, [word, allWords]);
 
   useEffect(() => {
-    setFlipped(false);
+    setUserInput('');
+    setFeedback(null);
+    setShowAnswer(false);
+    setWrongAttempts(0);
+    setMcOptions([]);
+    setHintActive(false);
+    if (inputRef.current) inputRef.current.focus();
   }, [word?.id]);
+
+  useEffect(() => {
+    if (wrongAttempts === 1 && mcOptions.length === 0) {
+      setMcOptions(generateOptions());
+    }
+  }, [wrongAttempts, mcOptions.length, generateOptions]);
 
   if (!word) return null;
 
@@ -993,22 +1028,55 @@ const StudyScreen = ({
   const palette = getRiskPalette(currentRisk);
   const badge = currentRisk > 80 ? '⚠ NGUY CẤP' : currentRisk >= 50 ? 'CẦN BẢO VỆ' : 'ỔN ĐỊNH HƠN';
 
+  const normalizeForCheck = (val) => normalizeVN(val).toLowerCase().trim().replace(/\s+/g, ' ');
+
+  const handleCheck = (e, manualValue = null) => {
+    if (e) e.preventDefault();
+    if (isFrozen || feedback) return;
+
+    const valToCheck = manualValue !== null ? manualValue : userInput;
+    const correctAns = normalizeForCheck(word.vi);
+    const playerAns = normalizeForCheck(valToCheck);
+
+    if (playerAns === correctAns) {
+      setFeedback('correct');
+      setTimeout(onKeep, 1200);
+    } else {
+      setWrongAttempts((prev) => prev + 1);
+      setFeedback('wrong');
+      
+      // If failed twice, show answer and move on
+      if (wrongAttempts >= 1) {
+        setShowAnswer(true);
+        setTimeout(onUnknown, 2500);
+      } else {
+        // Clear feedback after a bit to let them try again or use MC
+        setTimeout(() => setFeedback(null), 1500);
+      }
+    }
+  };
+
+  const useHint = () => {
+    if (hintActive || feedback || isFrozen) return;
+    setHintActive(true);
+    // Reveal first character
+    const firstChar = word.vi.trim().charAt(0);
+    setUserInput(firstChar);
+    if (onScoreChange) onScoreChange(-5); // Hint cost
+    if (inputRef.current) inputRef.current.focus();
+  };
+
   const playAudio = () => {
     if (!word.audio) return;
-
     const nfcFilename = word.audio.normalize('NFC');
     const nfdFilename = word.audio.normalize('NFD');
     const path = `${process.env.PUBLIC_URL || ''}/audio/${encodeURIComponent(nfcFilename)}`;
-
     const launch = (audioPath, fallbackPath = null) => {
       const audio = new Audio(audioPath);
       audioRef.current = audio;
-      audio.onerror = () => {
-        if (fallbackPath) launch(fallbackPath);
-      };
+      audio.onerror = () => { if (fallbackPath) launch(fallbackPath); };
       audio.play().catch(() => {});
     };
-
     const fallbackPath = nfcFilename !== nfdFilename
       ? `${process.env.PUBLIC_URL || ''}/audio/${encodeURIComponent(nfdFilename)}`
       : null;
@@ -1019,7 +1087,7 @@ const StudyScreen = ({
     <div className={`flashcard-root ${themeMode === 'night' ? 'mode-night' : 'mode-day'}`}>
       <div className="flashcard-topbar">
         <div className="flashcard-shell py-3 space-y-2">
-          <p className="text-[11px] tracking-[0.18em] uppercase text-white/70">Tiến trình phiên học</p>
+          <p className="text-[11px] tracking-[0.18em] uppercase text-white/70">Sứ mệnh giải cứu</p>
           <div className="flashcard-progress-track">
             <motion.div
               className="flashcard-progress-fill"
@@ -1060,76 +1128,113 @@ const StudyScreen = ({
         <AnimatePresence mode="wait">
           <motion.div
             key={word.id}
-            className="perspective-wrap"
-            initial={{ opacity: 0, y: 35, scale: 0.86 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, rotate: 5 }}
-            transition={{ duration: 0.45, ease: 'easeOut' }}
+            className="study-container"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.05 }}
           >
-            <motion.div className="flip-card" animate={{ rotateY: flipped ? 180 : 0 }} transition={{ duration: 0.62, ease: 'easeInOut' }}>
-              <div
-                className="flip-face p-4 md:p-7"
-                style={{ border: `1px solid ${palette.border}`, background: 'linear-gradient(145deg, rgba(26,26,36,0.95), rgba(8,8,12,0.95))' }}
-                onClick={() => {
-                  if (isFrozen) return;
-                  setFlipped((prev) => {
-                    const next = !prev;
-                    if (next) onCardFlipped();
-                    return next;
-                  });
-                }}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <span className="inline-flex rounded-full bg-white/10 border border-white/15 text-[10px] md:text-xs px-3 py-1 tracking-wider uppercase font-semibold">{badge}</span>
-                  <span className="text-xs text-white/65">Bước {step}</span>
-                </div>
-
-                <p className="mt-6 md:mt-8 text-sm md:text-base text-white/70">Chỉ còn {communityCount[word.id] || word.knownBy} người biết từ này</p>
-                <h2 className="mt-4 md:mt-8 text-3xl md:text-6xl font-black tracking-wide" style={{ color: '#ffd29e', textShadow: '0 0 18px rgba(255,132,40,0.25)' }}>{word.tay}</h2>
-                <div className="mt-6 border-t border-white/10" />
-                <p className="mt-4 md:mt-6 text-[11px] md:text-xs tracking-[0.2em] uppercase text-white/50">
-                  {isFrozen ? '❄️ Đang bị đóng băng...' : 'Nhấn để khám phá'}
-                </p>
+            <div
+              className={`study-card ${feedback}`}
+              style={{ border: `1px solid ${palette.border}` }}
+            >
+              <div className="study-card-header">
+                <span className="badge">{badge}</span>
+                <span className="step-tag">Bước {step}</span>
               </div>
 
-              <div
-                className="flip-face flip-back p-4 md:p-7"
-                style={{ border: `1px solid ${palette.border}`, background: 'linear-gradient(145deg, rgba(10,10,14,0.98), rgba(30,16,8,0.93))' }}
-                onClick={() => setFlipped((prev) => !prev)}
-              >
-                <p className="text-xs tracking-[0.16em] uppercase text-white/60">Nghĩa tiếng Việt</p>
-                <h3 className="text-2xl md:text-4xl font-extrabold mt-3">{word.vi}</h3>
-                <p className="mt-4 text-white/80 italic leading-relaxed text-sm md:text-base">{word.example}</p>
-                <span className="inline-block mt-5 text-[11px] px-3 py-1 rounded-full border border-white/20 bg-white/5">{word.category}</span>
+              <div className="study-card-body">
+                <p className="risk-hint">Đừng để từ này mất đi! Chỉ còn {communityCount[word.id] || word.knownBy} người nhớ.</p>
+                <h2 className="word-tay">{word.tay}</h2>
+                
+                <form className="input-group" onSubmit={handleCheck}>
+                  <p className="input-label">Nghĩa tiếng Việt là gì?</p>
+                  <div className="relative">
+                    <input
+                      ref={inputRef}
+                      className="meaning-input"
+                      value={userInput}
+                      onChange={(e) => setUserInput(e.target.value)}
+                      placeholder="Gõ nghĩa của từ..."
+                      disabled={isFrozen || !!feedback}
+                      autoFocus
+                    />
+                    {!feedback && !hintActive && !isFrozen && (
+                      <button type="button" className="hint-trigger" onClick={useHint} title="Dùng 5 điểm để xem gợi ý">
+                        💡 Gợi ý
+                      </button>
+                    )}
+                  </div>
+                  
+                  {!feedback && (
+                    <div className="flex gap-2 mt-3">
+                      <button type="submit" className="check-btn flex-1" disabled={!userInput.trim()}>
+                        Kiểm tra
+                      </button>
+                    </div>
+                  )}
+                </form>
 
-                <div className="story-box rounded-xl mt-5 p-3">
-                  <p className="text-[11px] uppercase tracking-[0.2em] text-white/50">Câu chuyện từ</p>
-                  <p className="text-sm mt-2 text-white/82 leading-relaxed">{word.story}</p>
-                </div>
+                {/* Multiple Choice Fallback */}
+                <AnimatePresence>
+                  {wrongAttempts > 0 && !feedback && !showAnswer && (
+                    <motion.div 
+                      className="mc-options-grid mt-6"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                    >
+                      <p className="text-[11px] uppercase tracking-widest text-white/40 mb-3 text-center">Hoặc chọn đáp án đúng bên dưới:</p>
+                      <div className="grid grid-cols-2 gap-2">
+                        {mcOptions.map((opt, i) => (
+                          <button 
+                            key={i} 
+                            className="mc-opt-btn"
+                            onClick={() => {
+                              setUserInput(opt);
+                              handleCheck(null, opt);
+                            }}
+                          >
+                            {opt}
+                          </button>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
 
-                {word.audio && (
-                  <button
-                    className="mt-4 px-3 py-2 text-xs font-semibold rounded-lg bg-white/10 border border-white/20"
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      playAudio();
-                    }}
-                  >
-                    🔊 Nghe âm thanh
-                  </button>
+                {feedback === 'correct' && (
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="feedback-msg correct">
+                    ✨ Tuyệt vời! Bạn là Hộ vệ của từ này.
+                  </motion.div>
+                )}
+                {feedback === 'wrong' && (
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="feedback-msg wrong">
+                    {wrongAttempts === 1 ? '❌ Thử lại nhé, hoặc dùng trắc nghiệm bên dưới!' : '❌ Vẫn chưa đúng rồi...'}
+                  </motion.div>
                 )}
               </div>
-            </motion.div>
+
+              <AnimatePresence>
+                {showAnswer && (
+                  <motion.div
+                    className="answer-reveal"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                  >
+                    <div className="answer-content">
+                      <div className="h-px bg-white/10 my-4" />
+                      <p className="ans-label">Đáp án đúng để cứu từ:</p>
+                      <h3 className="ans-value">{word.vi}</h3>
+                      <p className="ans-story">{word.story}</p>
+                      {word.audio && (
+                        <button className="audio-mini-btn" onClick={playAudio}>🔊 Nghe âm thanh</button>
+                      )}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </motion.div>
         </AnimatePresence>
-
-        {flipped && !isFrozen && (
-          <motion.div className="action-buttons" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}>
-            <button onClick={onKeep} className="action-btn action-keep">🔥 Tôi sẽ giữ từ này</button>
-            <button onClick={onReview} className="action-btn action-review">👁 Cho tôi gặp lại</button>
-            <button onClick={onUnknown} className="action-btn action-unknown">💀 Từ này tôi chưa biết</button>
-          </motion.div>
-        )}
       </div>
     </div>
   );
@@ -1140,14 +1245,38 @@ const SuccessScreen = ({ word, newCommunityCount, score, streak }) => {
     <div className="flashcard-root relative overflow-hidden">
       <SuccessBurstCanvas active />
       <div className="flashcard-shell min-h-screen flex flex-col items-center justify-center text-center relative z-10">
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className="mb-6"
+        >
+          <span className="text-6xl">🌟</span>
+        </motion.div>
+        
         <motion.h2 className="text-2xl md:text-5xl font-black leading-tight" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
-          Bạn là người thứ <AnimatedCounter value={newCommunityCount} /> giữ từ '{word.tay}'
+          Giải cứu thành công: '{word.tay}'
         </motion.h2>
-        <p className="mt-4 text-white/70 text-sm md:text-base">Từ này sẽ không biến mất hôm nay</p>
-        <p className="mt-3 text-emerald-300 font-semibold">+ Điểm hiện tại: {score} | Combo: {streak}</p>
+        <p className="mt-2 text-xl text-emerald-300 font-bold">Nghĩa là: {word.vi}</p>
+        
+        <div className="mt-8 p-6 rounded-2xl bg-white/5 border border-white/10 max-w-xl">
+          <p className="text-white/80 italic leading-relaxed">"{word.story}"</p>
+        </div>
 
-        <motion.div className="mt-8" initial={{ scale: 0.4, opacity: 0, rotate: -12 }} animate={{ scale: 1, opacity: 1, rotate: 0 }} transition={{ duration: 0.4, delay: 0.2 }}>
-          <span className="stamp-badge">Người Giữ Từ</span>
+        <p className="mt-6 text-white/70 text-sm md:text-base">
+          Bạn là người thứ <AnimatedCounter value={newCommunityCount} /> bảo vệ từ này khỏi sự quên lãng.
+        </p>
+        
+        <div className="mt-4 flex gap-4 justify-center">
+          <div className="px-4 py-2 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+            + {score} Điểm
+          </div>
+          <div className="px-4 py-2 rounded-lg bg-orange-500/20 text-orange-300 border border-orange-500/30">
+            Combo: {streak}
+          </div>
+        </div>
+
+        <motion.div className="mt-10" initial={{ scale: 0.4, opacity: 0, rotate: -12 }} animate={{ scale: 1, opacity: 1, rotate: 0 }} transition={{ duration: 0.4, delay: 0.4 }}>
+          <span className="stamp-badge">Hộ Vệ Bản Làng</span>
         </motion.div>
       </div>
     </div>
@@ -1454,8 +1583,8 @@ const FlashcardRescue = ({ onExit }) => {
       if (!prev.active) return prev;
       if (prev.step === 0 && eventName === 'node-picked') return { active: true, step: 1 };
       if (prev.step === 1 && eventName === 'session-started') return { active: true, step: 2 };
-      if (prev.step === 2 && eventName === 'card-flipped') return { active: true, step: 3 };
-      if (prev.step === 3 && eventName === 'decision-made') return { active: false, step: 3 };
+      if (prev.step === 2 && eventName === 'decision-made') return { active: true, step: 3 };
+      if (prev.step === 3 && eventName === 'session-ended') return { active: false, step: 3 };
       return prev;
     });
   };
@@ -1664,6 +1793,11 @@ const FlashcardRescue = ({ onExit }) => {
     if (reviewPick) return reviewPick;
 
     const fallbackList = getPriorityWords(words, nextLearned, nextCommunity);
+    if (fallbackList.length === 0) {
+      // If everything is learned, reset learned list for fallback or pick random
+      const randomWord = words[Math.floor(Math.random() * words.length)];
+      return randomWord?.id || null;
+    }
     const fallback = fallbackList.find((item) => item.id !== avoidId) || fallbackList[0];
     return fallback?.id || null;
   };
@@ -1855,26 +1989,6 @@ const FlashcardRescue = ({ onExit }) => {
     }, 2500);
   };
 
-  const markReview = () => {
-    if (!currentWord) return;
-    playClickSfx();
-    advanceTutorial('decision-made');
-    if (sessionRole?.id !== 'tho-san') {
-      setStreak(0);
-    }
-    setScore((prev) => prev + 20);
-
-    const nextSessionSeen = sessionSeenIds.includes(currentWord.id)
-      ? sessionSeenIds
-      : [...sessionSeenIds, currentWord.id];
-    setSessionSeenIds(nextSessionSeen);
-
-    const queueWithoutCurrent = reviewQueue.filter((id) => id !== currentWord.id);
-    const nextReview = [...queueWithoutCurrent, currentWord.id];
-    setReviewQueue(nextReview);
-    goToNext({ learnedWords: nextSessionSeen, sessionSavedIds: sessionSavedIds, reviewQueue: nextReview, avoidWordId: currentWord.id });
-  };
-
   const markUnknown = () => {
     if (!currentWord) return;
     playFailSfx();
@@ -1912,20 +2026,21 @@ const FlashcardRescue = ({ onExit }) => {
   const useItem = (itemKey) => {
     const item = ITEM_TYPES[itemKey];
     if (!item) return;
+    if ((playerInventory[itemKey] || 0) <= 0) return;
 
-    // For multiplayer targeting items (freeze, steal) – show picker first
-    const inRoom = multiplayer.roomCode && multiplayer.roomPlayers.length > 1;
-    if (inRoom && (itemKey === 'freeze' || itemKey === 'steal')) {
-      playClickSfx();
-      setTargetPicker({ itemKey });
-      return; // item is consumed only after target confirmed
-    }
-
-    // Consume item from inventory
+    // Consume item from inventory immediately
     setPlayerInventory((prev) => ({
       ...prev,
       [itemKey]: Math.max(0, (prev[itemKey] || 0) - 1),
     }));
+
+    // For multiplayer targeting items (freeze, steal) – show picker
+    const inRoom = multiplayer.roomCode && multiplayer.roomPlayers.length > 1;
+    if (inRoom && (itemKey === 'freeze' || itemKey === 'steal')) {
+      playClickSfx();
+      setTargetPicker({ itemKey });
+      return;
+    }
 
     switch (itemKey) {
       case 'freeze':
@@ -2009,13 +2124,8 @@ const FlashcardRescue = ({ onExit }) => {
               communityCount={communityCount}
               sessionLearnedCount={sessionSavedIds.length}
               onKeep={rescueWord}
-              onReview={markReview}
               onUnknown={markUnknown}
               step={sessionStep}
-              onCardFlipped={() => {
-                playClickSfx();
-                advanceTutorial('card-flipped');
-              }}
               score={score}
               streak={streak}
               maxStreak={maxStreak}
@@ -2037,6 +2147,8 @@ const FlashcardRescue = ({ onExit }) => {
               boostActivated={boostActivated}
               roomPlayers={multiplayer.roomPlayers}
               myPid={getMyPlayerId()}
+              allWords={words}
+              onScoreChange={(delta) => setScore((prev) => Math.max(0, prev + delta))}
             />
           </motion.div>
         )}
