@@ -764,8 +764,7 @@ const HomeScreen = ({
                   style={{
                     background: `radial-gradient(circle at 28% 30%, rgba(255,255,255,0.25), ${palette.color})`,
                     borderColor: palette.border,
-                    width: `${size}px`,
-                    height: `${size}px`,
+                    '--node-size': `${size}px`,
                     position: 'absolute',
                     left: `${position.x}%`,
                     top: `${position.y}%`,
