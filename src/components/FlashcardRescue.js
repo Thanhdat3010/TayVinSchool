@@ -1439,7 +1439,7 @@ const SessionEndScreen = ({
         </div>
 
         <div className="mt-8 flex flex-col sm:flex-row gap-3">
-          <button onClick={onContinue} className="end-btn-primary">🔄 Tiếp tục giải cứu</button>
+          <button onClick={() => onContinue()} className="end-btn-primary">🔄 Tiếp tục giải cứu</button>
           <button onClick={onHome} className="end-btn-secondary">🏠 Về trang chủ</button>
         </div>
 
@@ -1803,6 +1803,7 @@ const FlashcardRescue = ({ onExit }) => {
   };
 
   const startSession = (seedWordId = null) => {
+    const actualSeedId = typeof seedWordId === 'string' ? seedWordId : null;
     playClickSfx();
     ensureAudioContext();
     advanceTutorial('session-started');
@@ -1817,7 +1818,7 @@ const FlashcardRescue = ({ onExit }) => {
     setBoostActivated(false);
     setPlayerInventory({});
 
-    const firstCandidate = seedWordId || pickNextWord([], communityCount, [], [], null);
+    const firstCandidate = actualSeedId || pickNextWord([], communityCount, [], [], null);
     const first = firstCandidate || words[0]?.id || null;
 
     setSessionStep(1);
