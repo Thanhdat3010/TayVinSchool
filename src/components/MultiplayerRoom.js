@@ -254,11 +254,10 @@ export const RoomPanel = ({ multiplayer, playerName, playerTeam, onStartGame }) 
   if (!isFirebaseReady()) {
     return (
       <div className="mp-panel mp-unconfigured">
-        <p className="mp-panel-icon">🔥</p>
         <p className="mp-panel-title">Chơi Nhóm Realtime (4 người)</p>
         <p className="mp-panel-desc">
           Điền Firebase config vào <code>src/firebase.js</code> để bật tính năng này.
-          <br /><a className="mp-docs-link" href="https://console.firebase.google.com" target="_blank" rel="noreferrer">→ Mở Firebase Console</a>
+          <br /><a className="mp-docs-link" href="https://console.firebase.google.com" target="_blank" rel="noreferrer">Mở Firebase Console</a>
         </p>
       </div>
     );
@@ -272,16 +271,16 @@ export const RoomPanel = ({ multiplayer, playerName, playerTeam, onStartGame }) 
         {/* Header */}
         <div className="mp-room-header">
           <div>
-            <p className="mp-panel-kicker">⚔️ Phòng đang mở</p>
+            <p className="mp-panel-kicker">Phòng đang mở</p>
             <div className="mp-code-row">
               <span className="mp-room-code">{roomCode}</span>
               <button className="mp-copy-btn"
                 onClick={() => navigator.clipboard?.writeText(roomCode).catch(()=>{})}
-                title="Sao chép mã">📋</button>
+                title="Sao chép mã">Sao chép</button>
             </div>
             <p className="mp-share-hint">Chia sẻ mã này cho bạn bè để cùng vào phòng</p>
           </div>
-          <button className="mp-leave-btn" onClick={leaveRoom}>Rời phòng ✕</button>
+          <button className="mp-leave-btn" onClick={leaveRoom}>Rời phòng</button>
         </div>
 
         {/* Player list */}
@@ -289,7 +288,7 @@ export const RoomPanel = ({ multiplayer, playerName, playerTeam, onStartGame }) 
           {roomPlayers.map(p => (
             <div key={p.id} className="mp-player-row">
               <span className="mp-dot" style={{ background: TEAM_COLORS[p.team] || '#888' }} />
-              <span className="mp-pname">{p.name}{p.isHost ? ' 👑' : ''}</span>
+              <span className="mp-pname">{p.name}{p.isHost ? ' (Host)' : ''}</span>
               <span className="mp-pteam" style={{ color: TEAM_COLORS[p.team] || '#ccc' }}>{p.team}</span>
               <span className="mp-pscore">{p.score || 0} đ</span>
             </div>
@@ -297,14 +296,14 @@ export const RoomPanel = ({ multiplayer, playerName, playerTeam, onStartGame }) 
           {roomPlayers.length === 0 && <p className="mp-empty">Đang chờ người chơi vào phòng...</p>}
         </div>
 
-        {roomError && <p className="mp-error">⚠️ {roomError}</p>}
+        {roomError && <p className="mp-error">Cảnh báo: {roomError}</p>}
 
         {isHost ? (
           <button className="mp-start-btn" onClick={onStartGame}>
-            🚀 Bắt đầu trận — {roomPlayers.length} người chơi
+            Bắt đầu trận — {roomPlayers.length} người chơi
           </button>
         ) : (
-          <p className="mp-waiting">⏳ Chờ host bắt đầu trận...</p>
+          <p className="mp-waiting">Chờ host bắt đầu trận...</p>
         )}
       </motion.div>
     );
@@ -314,7 +313,7 @@ export const RoomPanel = ({ multiplayer, playerName, playerTeam, onStartGame }) 
   return (
     <motion.div className="mp-panel"
       initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
-      <p className="mp-panel-kicker">⚔️ Chơi Nhóm Realtime</p>
+      <p className="mp-panel-kicker">Chơi Nhóm Realtime</p>
       <p className="mp-panel-desc">
         Tạo phòng hoặc nhập mã để cùng chiến với bạn bè trên mọi thiết bị.
       </p>
@@ -323,7 +322,7 @@ export const RoomPanel = ({ multiplayer, playerName, playerTeam, onStartGame }) 
         <button className="mp-create-btn"
           onClick={() => createRoom(playerName, playerTeam)}
           disabled={roomLoading}>
-          {roomLoading ? '⏳ Đang tạo...' : '➕ Tạo phòng mới'}
+          {roomLoading ? 'Đang tạo...' : 'Tạo phòng mới'}
         </button>
 
         <div className="mp-join-row">
@@ -336,7 +335,7 @@ export const RoomPanel = ({ multiplayer, playerName, playerTeam, onStartGame }) 
           <button className="mp-join-btn"
             onClick={() => joinRoom(joinCode, playerName, playerTeam)}
             disabled={roomLoading || joinCode.length !== 4}>
-            {roomLoading ? '...' : 'Vào →'}
+            {roomLoading ? '...' : 'Vào'}
           </button>
         </div>
 
@@ -344,7 +343,7 @@ export const RoomPanel = ({ multiplayer, playerName, playerTeam, onStartGame }) 
           {roomError && (
             <motion.p className="mp-error"
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-              ⚠️ {roomError}
+              Cảnh báo: {roomError}
             </motion.p>
           )}
         </AnimatePresence>
@@ -360,7 +359,7 @@ export const LivePlayersPanel = ({ roomPlayers, myPid }) => {
   return (
     <motion.div className="live-players-panel"
       initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-      <p className="live-title">👥 Phòng live</p>
+      <p className="live-title">Phòng live</p>
       <div className="live-list">
         {roomPlayers.map(p => (
           <div key={p.id} className={`live-row ${p.id === myPid ? 'live-me' : ''}`}>

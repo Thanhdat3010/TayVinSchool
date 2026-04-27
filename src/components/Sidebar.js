@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { BookOpen, ChevronRight, Menu, X } from 'lucide-react';
 import './Sidebar.css';
 import { dictionaryData } from '../data/dictionaryData';
 
@@ -11,14 +10,11 @@ const Sidebar = ({ activeCategory, setActiveCategory }) => {
   return (
     <>
       <button className="mobile-toggle" onClick={toggleSidebar}>
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
+        {isOpen ? 'Đóng' : 'Menu'}
       </button>
 
       <div className={`sidebar ${isOpen ? 'open' : ''}`}>
         <div className="logo-container">
-          <div className="logo-icon">
-            <BookOpen size={24} />
-          </div>
           <div className="logo-text">TADA</div>
         </div>
 
@@ -39,7 +35,6 @@ const Sidebar = ({ activeCategory, setActiveCategory }) => {
                       }}
                     >
                       <span className="flex-1">{cat.title}</span>
-                      {isActive && <ChevronRight size={16} />}
                     </button>
                   );
                 })}

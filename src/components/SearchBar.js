@@ -1,12 +1,10 @@
 import React from 'react';
-import { Search, X } from 'lucide-react';
 import './SearchBar.css';
 
 const SearchBar = ({ searchQuery, setSearchQuery, resultCount }) => {
   return (
     <div className="searchbar-wrapper">
       <div className="searchbar glass-panel">
-        <Search size={20} className="search-icon" />
         <input
           id="search-input"
           type="text"
@@ -21,7 +19,7 @@ const SearchBar = ({ searchQuery, setSearchQuery, resultCount }) => {
             className="clear-btn"
             onClick={() => setSearchQuery('')}
           >
-            <X size={18} />
+            XOÁ
           </button>
         )}
       </div>

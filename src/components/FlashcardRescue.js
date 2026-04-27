@@ -487,7 +487,7 @@ const ItemMiniGame = ({ item, onComplete, onCancel }) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            ✅ Kích hoạt thành công!
+            Kích hoạt thành công!
           </motion.p>
         )}
 
@@ -519,19 +519,19 @@ const MissionHud = ({
       <div className="mission-hud-left">
         <p className="mission-label">Nhiệm vụ đêm nay</p>
         <p className="mission-value">Giải cứu {rescued}/{SESSION_GOAL} từ trước {WOLF_STRIKE_LIMIT} vết cắn của Sói</p>
-        {role && <p className="mission-role">🎭 {role.name}: {role.skill}</p>}
-        {playerTitle && <p className="mission-title">🏆 {playerTitle}</p>}
-        {playerTeam && <p className="mission-team">⚔️ {playerTeam}</p>}
+        {role && <p className="mission-role">Vai trò {role.name}: {role.skill}</p>}
+        {playerTitle && <p className="mission-title">Danh hiệu: {playerTitle}</p>}
+        {playerTeam && <p className="mission-team">Phe: {playerTeam}</p>}
         {wolfStatus && <p className="wolf-status">{wolfStatus}</p>}
       </div>
       <div className="mission-hud-right">
-        <p className="hud-score">💎 <AnimatedCounter value={score} /></p>
+        <p className="hud-score">Điểm: <AnimatedCounter value={score} /></p>
         <p className="hud-streak">🔥 {streak} <span className="hud-streak-max">/{maxStreak}</span></p>
         <p className="hud-strike">🐺 {wolfStrikes}/{WOLF_STRIKE_LIMIT}</p>
         {shieldActive && <p className="hud-shield">🛡️ Khiên</p>}
         {boostActivated && <p className="hud-boost">⚡ x2</p>}
         <button className="sound-toggle" onClick={onToggleSound}>
-          {soundEnabled ? '🔊' : '🔇'}
+          {soundEnabled ? 'Bật âm' : 'Tắt âm'}
         </button>
       </div>
     </div>
@@ -577,7 +577,7 @@ const LeaderboardPanel = ({ rows, playerName, teamBoard, playerTeam }) => {
                 className={`leaderboard-row ${row.name === playerName ? 'me' : ''}`}
               >
                 <span className="lb-rank">
-                  {index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `#${index + 1}`}
+                  {index === 0 ? '#1' : index === 1 ? '#2' : index === 2 ? '#3' : `#${index + 1}`}
                 </span>
                 <div className="lb-info">
                   <strong>{row.name}</strong>
@@ -603,7 +603,7 @@ const LeaderboardPanel = ({ rows, playerName, teamBoard, playerTeam }) => {
                 className={`leaderboard-row team-row ${row.team === playerTeam ? 'me' : ''}`}
               >
                 <span className="lb-rank">
-                  {index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `#${index + 1}`}
+                  {index === 0 ? '#1' : index === 1 ? '#2' : index === 2 ? '#3' : `#${index + 1}`}
                 </span>
                 <div className="lb-info">
                   <strong style={{ color: teamColors[row.team] || '#fff' }}>{row.team}</strong>
@@ -611,7 +611,7 @@ const LeaderboardPanel = ({ rows, playerName, teamBoard, playerTeam }) => {
                 </div>
                 <div className="lb-team-score-col">
                   <span className="lb-score">{row.score} đ</span>
-                  {row.team === playerTeam && <span className="lb-my-team">← Phe bạn</span>}
+                  {row.team === playerTeam && <span className="lb-my-team">(Phe bạn)</span>}
                 </div>
               </div>
             ))}
@@ -832,7 +832,7 @@ const HomeScreen = ({
                     <p className="text-xs text-white/65 mt-1">Nguy cơ hiện tại: {selectedWord.currentRisk}/100</p>
                   </div>
                   <button className="rescue-btn" onClick={() => onStart(selectedWordId)}>
-                    Giải cứu ngay →
+                    Giải cứu ngay
                   </button>
                 </div>
               );
@@ -864,9 +864,9 @@ const HomeScreen = ({
             transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
             onClick={() => setShowRules(true)}
           >
-            🎮 Bắt đầu giải cứu
+            Bắt đầu giải cứu
           </motion.button>
-          <button className="rules-trigger" onClick={() => setShowRules(true)}>📜 Xem luật chơi</button>
+          <button className="rules-trigger" onClick={() => setShowRules(true)}>Xem luật chơi</button>
           <p className="urgent-count">Hôm nay có {urgentCount} từ cần bạn giải cứu khẩn cấp</p>
         </section>
       </div>
@@ -891,30 +891,30 @@ const HomeScreen = ({
                   <p className="rules-kicker">Hướng dẫn chơi dễ hiểu</p>
                   <h3>Bảo Vệ Kho Tàng Tiếng Tày</h3>
                 </div>
-                <button className="rules-close-x" onClick={closeRules}>✕</button>
+                <button className="rules-close-x" onClick={closeRules}>ĐÓNG</button>
               </div>
 
               <div className="rules-body">
                 <div className="rules-section">
-                  <p className="rules-subtitle">🎯 1. Nhiệm vụ của bạn (Mục Tiêu)</p>
+                  <p className="rules-subtitle">1. Nhiệm vụ của bạn (Mục Tiêu)</p>
                   <p>Chào mừng đến Bản Làng! Những từ ngữ tiếng Tày đang dần bị lãng quên. Nhiệm vụ của bạn là giải cứu <strong>ít nhất 8 từ</strong> trước khi con Sói Ngôn Ngữ kịp cắn hỏng kho từ 3 lần.</p>
                 </div>
 
                 <div className="rules-section">
-                  <p className="rules-subtitle">🚀 2. Bắt đầu như thế nào?</p>
+                  <p className="rules-subtitle">2. Bắt đầu như thế nào?</p>
                   <p>Ở màn hình chính, bạn hãy:</p>
                   <p className="rules-indent">• <strong>Nhập tên</strong> và <strong>Chọn Đội</strong> (Phe) để cùng bạn bè đua điểm.</p>
                   <p className="rules-indent">• Chạm vào một <strong>ngọn lửa sáng</strong> trên cây để ưu tiên cứu từ đó trước.</p>
-                  <p className="rules-indent">• Hoặc bấm ngay nút <strong>🎮 Bắt đầu giải cứu</strong> để vào chơi luôn!</p>
+                  <p className="rules-indent">• Hoặc bấm ngay nút <strong>Bắt đầu giải cứu</strong> để vào chơi luôn!</p>
                 </div>
 
                 <div className="rules-section">
-                  <p className="rules-subtitle">🃏 3. Cách chơi từng lượt (Rất dễ!)</p>
+                  <p className="rules-subtitle">3. Cách chơi từng lượt (Rất dễ!)</p>
                   <p>Mỗi lượt, một thẻ từ tiếng Tày sẽ hiện ra trên màn hình:</p>
                   <p>① Hãy <strong>nhập nghĩa tiếng Việt</strong> của từ đó vào ô trống.</p>
                   <p>② Bấm Enter hoặc nút "Kiểm tra" để xem kết quả.</p>
-                  <p className="rules-indent">✅ <strong>Nhập đúng</strong>: Bạn nhận được điểm, tăng chuỗi Combo và từ đó được giải cứu an toàn.</p>
-                  <p className="rules-indent">❌ <strong>Nhập sai</strong>: Bạn bị trừ 10 điểm. Nếu nhập sai trúng từ mà Sói đang săn, bạn sẽ bị cắn!</p>
+                  <p className="rules-indent"><strong>Nhập đúng</strong>: Bạn nhận được điểm, tăng chuỗi Combo và từ đó được giải cứu an toàn.</p>
+                  <p className="rules-indent"><strong>Nhập sai</strong>: Bạn bị trừ 10 điểm. Nếu nhập sai trúng từ mà Sói đang săn, bạn sẽ bị cắn!</p>
                 </div>
 
                 <div className="rules-section">
@@ -926,7 +926,7 @@ const HomeScreen = ({
                 </div>
 
                 <div className="rules-section">
-                  <p className="rules-subtitle">⚔️ 5. Chế độ nhiều người & Vật phẩm</p>
+                  <p className="rules-subtitle">5. Chế độ nhiều người & Vật phẩm</p>
                   <p>Khi chơi thi đấu, thỉnh thoảng bạn sẽ nhận được Vật Phẩm xịn xò để dùng:</p>
                   <p className="rules-indent">❄️ <strong>Đóng Băng</strong>: Làm đối thủ bị "đứng hình" không bấm được trong 5 giây!</p>
                   <p className="rules-indent">🕷️ <strong>Cướp Điểm</strong>: Lén lấy 50 điểm của một người chơi khác.</p>
@@ -935,15 +935,15 @@ const HomeScreen = ({
                 </div>
 
                 <div className="rules-section">
-                  <p className="rules-subtitle">🏁 6. Kết thúc game</p>
-                  <p>🏆 <strong>CHIẾN THẮNG</strong>: Bạn cứu đủ 8 từ trước khi Sói cắn 3 lần. Nhận ngay điểm khủng (+250) và vinh danh Đội của bạn!</p>
-                  <p>💀 <strong>THẤT BẠI</strong>: Bị Sói cắn đủ 3 lần. Đừng lo, bạn vẫn nhận được điểm nỗ lực để thử lại vào ván sau!</p>
+                  <p className="rules-subtitle">6. Kết thúc game</p>
+                  <p><strong>CHIẾN THẮNG</strong>: Bạn cứu đủ 8 từ trước khi Sói cắn 3 lần. Nhận ngay điểm khủng (+250) và vinh danh Đội của bạn!</p>
+                  <p><strong>THẤT BẠI</strong>: Bị Sói cắn đủ 3 lần. Đừng lo, bạn vẫn nhận được điểm nỗ lực để thử lại vào ván sau!</p>
                 </div>
               </div>
 
               <div className="rules-actions">
                 <button className="rules-start" onClick={() => { closeRules(); onStart(selectedWordId); }}>
-                  🚀 Đã hiểu, bắt đầu ngay
+                  Đã hiểu, bắt đầu ngay
                 </button>
                 <button className="rules-close" onClick={closeRules}>
                   Đóng
@@ -1026,7 +1026,7 @@ const StudyScreen = ({
 
   const currentRisk = getCurrentRisk(word, communityCount);
   const palette = getRiskPalette(currentRisk);
-  const badge = currentRisk > 80 ? '⚠ NGUY CẤP' : currentRisk >= 50 ? 'CẦN BẢO VỆ' : 'ỔN ĐỊNH HƠN';
+  const badge = currentRisk > 80 ? 'NGUY CẤP' : currentRisk >= 50 ? 'CẦN BẢO VỆ' : 'ỔN ĐỊNH HƠN';
 
   const normalizeForCheck = (val) => normalizeVN(val).toLowerCase().trim().replace(/\s+/g, ' ');
 
@@ -1160,7 +1160,7 @@ const StudyScreen = ({
                     />
                     {!feedback && !hintActive && !isFrozen && (
                       <button type="button" className="hint-trigger" onClick={useHint} title="Dùng 5 điểm để xem gợi ý">
-                        💡 Gợi ý
+                        Gợi ý
                       </button>
                     )}
                   </div>
@@ -1203,12 +1203,12 @@ const StudyScreen = ({
 
                 {feedback === 'correct' && (
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="feedback-msg correct">
-                    ✨ Tuyệt vời! Bạn là Hộ vệ của từ này.
+                    Tuyệt vời! Bạn là Hộ vệ của từ này.
                   </motion.div>
                 )}
                 {feedback === 'wrong' && (
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="feedback-msg wrong">
-                    {wrongAttempts === 1 ? '❌ Thử lại nhé, hoặc dùng trắc nghiệm bên dưới!' : '❌ Vẫn chưa đúng rồi...'}
+                    {wrongAttempts === 1 ? 'Thử lại nhé, hoặc dùng trắc nghiệm bên dưới!' : 'Vẫn chưa đúng rồi...'}
                   </motion.div>
                 )}
               </div>
@@ -1226,7 +1226,7 @@ const StudyScreen = ({
                       <h3 className="ans-value">{word.vi}</h3>
                       <p className="ans-story">{word.story}</p>
                       {word.audio && (
-                        <button className="audio-mini-btn" onClick={playAudio}>🔊 Nghe âm thanh</button>
+                        <button className="audio-mini-btn" onClick={playAudio}>Nghe âm thanh</button>
                       )}
                     </div>
                   </motion.div>
@@ -1250,7 +1250,7 @@ const SuccessScreen = ({ word, newCommunityCount, score, streak }) => {
           animate={{ scale: 1, opacity: 1 }}
           className="mb-6"
         >
-          <span className="text-6xl">🌟</span>
+          <span className="text-6xl"></span>
         </motion.div>
         
         <motion.h2 className="text-2xl md:text-5xl font-black leading-tight" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
@@ -1335,7 +1335,6 @@ const SessionEndScreen = ({
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
             >
-              <span className="outcome-icon">🏆</span>
               <div>
                 <h2>Bản làng qua đêm an toàn!</h2>
                 <p>Nhờ bạn, {rescuedToday} từ tiếng Tày được giữ lại cho thế hệ sau.</p>
@@ -1347,7 +1346,6 @@ const SessionEndScreen = ({
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
             >
-              <span className="outcome-icon">💀</span>
               <div>
                 <h2>Đêm Sói đã xuyên thủng phòng tuyến</h2>
                 <p>Bạn đã giữ được {rescuedToday} từ, nhưng Sói ngôn ngữ đã cắn {wolfStrikes} lần. Hãy quay lại đêm sau!</p>
@@ -1356,17 +1354,17 @@ const SessionEndScreen = ({
           )}
         </div>
 
-        {role && <p className="mt-2 text-sm text-orange-300">🎭 Vai trò vừa chơi: {role.name}</p>}
+        {role && <p className="mt-2 text-sm text-orange-300">Vai trò vừa chơi: {role.name}</p>}
 
         <div className="session-metrics mt-4">
-          <span>💎 {score} điểm</span>
+          <span>Điểm: {score}</span>
           <span>🔥 Combo cao nhất: {maxStreak}</span>
-          <span>📚 Đã cứu: {rescuedToday} từ</span>
-          <span>🏅 Hạng: {playerRank > 0 ? `#${playerRank}` : 'Chưa xếp hạng'}</span>
+          <span>Đã cứu: {rescuedToday} từ</span>
+          <span>Hạng: {playerRank > 0 ? `#${playerRank}` : 'Chưa xếp hạng'}</span>
           <span>🐺 Sói cắn: {wolfStrikes}/{WOLF_STRIKE_LIMIT}</span>
-          <span>🏆 {playerTitle}</span>
-          <span>⚔️ {playerTeam} {playerTeamRank > 0 ? `(Top #${playerTeamRank})` : ''}</span>
-          <span>🎖️ +{missionReward} điểm chiến dịch</span>
+          <span>Danh hiệu: {playerTitle}</span>
+          <span>Phe: {playerTeam} {playerTeamRank > 0 ? `(Top #${playerTeamRank})` : ''}</span>
+          <span>+{missionReward} điểm chiến dịch</span>
         </div>
 
         <div className="reward-box mt-4">
@@ -1439,8 +1437,8 @@ const SessionEndScreen = ({
         </div>
 
         <div className="mt-8 flex flex-col sm:flex-row gap-3">
-          <button onClick={() => onContinue()} className="end-btn-primary">🔄 Tiếp tục giải cứu</button>
-          <button onClick={onHome} className="end-btn-secondary">🏠 Về trang chủ</button>
+          <button onClick={() => onContinue()} className="end-btn-primary">Tiếp tục giải cứu</button>
+          <button onClick={onHome} className="end-btn-secondary">Về trang chủ</button>
         </div>
 
         <div className="mt-6">
@@ -2244,7 +2242,7 @@ const FlashcardRescue = ({ onExit }) => {
         whileHover={{ scale: 1.04 }}
         onClick={onExit}
       >
-        ← Về trang chủ
+        Về trang chủ
       </motion.button>
     </div>
   );

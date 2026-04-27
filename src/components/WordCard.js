@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import { Play, Volume2 } from 'lucide-react';
 import './WordCard.css';
 
 const WordCard = ({ wordData }) => {
@@ -45,7 +44,7 @@ const WordCard = ({ wordData }) => {
           onClick={handlePlay}
           title="Nghe phát âm"
         >
-          {isPlaying ? <Volume2 size={24} /> : <Play size={24} fill="currentColor" />}
+          {isPlaying ? 'DỪNG' : 'PHÁT'}
         </button>
       </div>
       {wordData.description && (
