@@ -1460,7 +1460,20 @@ const SessionEndScreen = ({
 // Main component
 // ─────────────────────────────────────────
 const FlashcardRescue = ({ onExit }) => {
-  const words = useMemo(() => flattenDictionaryWords(), []);
+  const words = useMemo(() => {
+    const sessionKey = 'flashcard.sessionWords';
+    const cached = sessionStorage.getItem(sessionKey);
+    if (cached) {
+      try {
+        return JSON.parse(cached);
+      } catch (e) {
+        // Fallback to generation if parsing fails
+      }
+    }
+    const generated = flattenDictionaryWords();
+    sessionStorage.setItem(sessionKey, JSON.stringify(generated));
+    return generated;
+  }, []);
   const [communityCount, setCommunityCount] = useState({});
   const [learnedWords, setLearnedWords] = useState([]);
 
