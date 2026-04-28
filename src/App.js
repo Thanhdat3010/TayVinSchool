@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { dictionaryData } from './data/dictionaryData';
 import FlashcardRescue from './components/FlashcardRescue';
+import VideoGallery from './components/VideoGallery';
+
 
 // ─── Assets ──────────────────────────────────────────────────────────────────
 import logoImg from './assets/logotudientay.png';
@@ -411,8 +413,20 @@ const App = () => {
     }
   };
 
+  const navigateToMultimedia = () => {
+    if (window.location.pathname !== '/multimedia') {
+      window.history.pushState({}, '', '/multimedia');
+      setPathname('/multimedia');
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  };
+
   if (pathname === '/flashcard') {
     return <FlashcardRescue onExit={navigateToHome} />;
+  }
+
+  if (pathname === '/multimedia') {
+    return <VideoGallery onExit={navigateToHome} />;
   }
 
   const handleExplore = (chapter, meta) => {
@@ -465,6 +479,13 @@ const App = () => {
           >
             <span className="hidden sm:inline">ĐÁNH THỨC TỪ TÀY</span>
             <span className="sm:hidden">Flashcard</span>
+          </button>
+          <button
+            onClick={navigateToMultimedia}
+            className="flex items-center gap-2 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-yellow-500 hover:text-yellow-400 transition-all"
+          >
+            <span className="hidden sm:inline">HOẠT CẢNH</span>
+            <span className="sm:hidden">Video</span>
           </button>
           <button
             onClick={() => { setShowSearch(true); setSearchQuery(''); }}
@@ -567,6 +588,16 @@ const App = () => {
         >
           <span className="relative z-10 flex items-center gap-3">
             Đánh Thức Từ Tày
+          </span>
+          <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+        </button>
+
+        <button
+          onClick={navigateToMultimedia}
+          className="mt-4 group relative px-10 py-5 bg-yellow-600 text-white font-bold hover:bg-yellow-500 hover:text-black transition-all duration-500 rounded-full tracking-[0.2em] text-[10px] md:text-xs uppercase overflow-hidden"
+        >
+          <span className="relative z-10 flex items-center gap-3">
+            Xem Hoạt Cảnh
           </span>
           <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
         </button>
