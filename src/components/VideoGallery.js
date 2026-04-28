@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import './VideoGallery.css';
 
 const VIDEOS = [
-  { title: 'Đồ dùng sinh hoạt: Nồi', filename: ' ĐỒ DÙNG SINH HOẠT _ Nồi.mov', category: 'Đời sống' },
+  { title: 'Đồ dùng sinh hoạt: Nồi', filename: ' ĐỒ DÙNG SINH HOẠT _ Nồi.mp4', category: 'Đời sống' },
   { title: 'Con vật', filename: 'CON VẬT.mp4', category: 'Tự nhiên' },
-  { title: 'Con dao', filename: 'Con dao.mov', category: 'Lao động' },
-  { title: 'Cái cuốc', filename: 'Cái cuốc.mov', category: 'Lao động' },
-  { title: 'Cái xẻng', filename: 'Cái xẻng.mov', category: 'Lao động' },
-  { title: 'Đồ dùng: Đũa và bát', filename: 'HOẠT CẢNH ĐỒ DÙNG SINH HOẠT _ Đũa và bát.mov', category: 'Đời sống' },
+  { title: 'Con dao', filename: 'Con dao.mp4', category: 'Lao động' },
+  { title: 'Cái cuốc', filename: 'Cái cuốc.mp4', category: 'Lao động' },
+  { title: 'Cái xẻng', filename: 'Cái xẻng.mp4', category: 'Lao động' },
+  { title: 'Đồ dùng: Đũa và bát', filename: 'HOẠT CẢNH ĐỒ DÙNG SINH HOẠT _ Đũa và bát.mp4', category: 'Đời sống' },
   { title: 'Hát Lượn (Văn Quan)', filename: 'Hát Lượn, Văn Quan-Lạng Sơn.mp4', category: 'Nghệ thuật' },
   { title: 'Hát Sli (Chi Lăng)', filename: 'Hát Sli, Bản Thí-Chi Lăng-Lạng Sơn.mp4', category: 'Nghệ thuật' },
   { title: 'Hát Then', filename: 'Hát Then.mp4', category: 'Nghệ thuật' },
   { title: 'Lễ Thanh Minh', filename: 'Lễ Thanh Minh.mp4', category: 'Văn hoá' },
-  { title: 'Mời ăn cơm', filename: 'Mời ăn Cơm_.mov', category: 'Giao tiếp' },
+  { title: 'Mời ăn cơm', filename: 'Mời ăn Cơm_.mp4', category: 'Giao tiếp' },
   { title: 'Số đếm', filename: 'Số Đếm.mp4', category: 'Kiến thức' },
 ];
 
