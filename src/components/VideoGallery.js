@@ -14,6 +14,21 @@ const VIDEOS = [
   { title: 'Lễ Thanh Minh', filename: 'Lễ Thanh Minh.mp4', category: 'Văn hoá' },
   { title: 'Mời ăn cơm', filename: 'Mời ăn Cơm_.mp4', category: 'Giao tiếp' },
   { title: 'Số đếm', filename: 'Số Đếm.mp4', category: 'Kiến thức' },
+  { title: 'Bờ ruộng', filename: 'Bờ ruộng.mp4', category: 'Tự nhiên' },
+  { title: 'Cái bừa', filename: 'Cái bừa.mp4', category: 'Lao động' },
+  { title: 'Cái cày', filename: 'Cái cày.mp4', category: 'Lao động' },
+  { title: 'Cái gùi gánh', filename: 'Cái gùi_gánh.mp4', category: 'Lao động' },
+  { title: 'Cái liềm', filename: 'Cái liềm.mp4', category: 'Lao động' },
+  { title: 'Cây lúa', filename: 'cây lúa.mp4', category: 'Tự nhiên' },
+  { title: 'Đất, trồng', filename: 'Đất, trồng.mp4', category: 'Lao động' },
+  { title: 'Đồi', filename: 'Đồi.mp4', category: 'Tự nhiên' },
+  { title: 'Đốt nương', filename: 'Đốt nương.mp4', category: 'Lao động' },
+  { title: 'Lấy củi', filename: 'Lấy củi.mp4', category: 'Lao động' },
+  { title: 'Nhổ cỏ', filename: 'Nhổ cỏ.mp4', category: 'Lao động' },
+  { title: 'Nương', filename: 'Nương.mp4', category: 'Tự nhiên' },
+  { title: 'Rau', filename: 'Rau.mp4', category: 'Tự nhiên' },
+  { title: 'Ruộng', filename: 'Ruộng.mp4', category: 'Tự nhiên' },
+  { title: 'Trồng trọt: Sắn, cà chua, ngô', filename: 'Trồng trọt_ Sắn, cà chua, ngô.mp4', category: 'Lao động' },
 ];
 
 const VideoGallery = ({ onExit }) => {
