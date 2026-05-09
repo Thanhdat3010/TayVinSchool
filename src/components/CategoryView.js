@@ -14,7 +14,8 @@ const CategoryView = ({ category, searchQuery }) => {
       const lowerQuery = searchQuery.toLowerCase();
       filteredWords = words.filter(w => 
         w.word.toLowerCase().includes(lowerQuery) || 
-        w.meaning.toLowerCase().includes(lowerQuery)
+        w.meaning.toLowerCase().includes(lowerQuery) ||
+        (w.description && w.description.toLowerCase().includes(lowerQuery))
       );
     }
 

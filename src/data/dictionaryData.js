@@ -1048,6 +1048,12 @@ export const dictionaryData = [
                 "audio": "Đi hội.m4a"
               },
               {
+                "word": "Tàng pây tùng dú tâ'ư",
+                "meaning": "Đường đi hội ở đâu",
+                "description": "câu hỏi dùng để hỏi đường.",
+                "audio": ""
+              },
+              {
                 "word": "Tặt bàn",
                 "meaning": "Cúng",
                 "description": "nghi lễ dâng lễ.",

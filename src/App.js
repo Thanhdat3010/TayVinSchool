@@ -130,7 +130,8 @@ const ChapterModal = ({ chapter, meta, onClose }) => {
     ? allWords.filter(
       (w) =>
         w.word.toLowerCase().includes(searchQ.toLowerCase()) ||
-        w.meaning.toLowerCase().includes(searchQ.toLowerCase())
+        w.meaning.toLowerCase().includes(searchQ.toLowerCase()) ||
+        (w.description && w.description.toLowerCase().includes(searchQ.toLowerCase()))
     )
     : null;
 
@@ -317,7 +318,8 @@ const GlobalSearch = ({ query, setQuery, onClose }) => {
     ? allWords.filter(
       (w) =>
         w.word.toLowerCase().includes(query.toLowerCase()) ||
-        w.meaning.toLowerCase().includes(query.toLowerCase())
+        w.meaning.toLowerCase().includes(query.toLowerCase()) ||
+        (w.description && w.description.toLowerCase().includes(query.toLowerCase()))
     )
     : [];
 
