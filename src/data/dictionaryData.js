@@ -2316,5 +2316,40 @@ export const dictionaryData = [
         ]
       }
     ]
+  },
+  {
+    "title": "CHƯƠNG IV: TỔNG HỢP CÁC CÂU GIAO TIẾP",
+    "categories": [
+      {
+        "title": "A. Các mẫu câu thông dụng",
+        "subcategories": [
+          {
+            "title": "1. Hỏi đáp và giao tiếp hàng ngày",
+            "words": [
+              { "word": "Pây lăng", "meaning": "đi đâu?", "description": "Câu rủ/hỏi đi đâu", "audio": "" },
+              { "word": "Pây vớ", "meaning": "đi thôi", "description": "Câu rủ đi cùng", "audio": "" },
+              { "word": "Mừa hả", "meaning": "về nhé!", "description": "Lời chào khi đi về", "audio": "" },
+              { "word": "Pây tùng mí", "meaning": "đi hội không?", "description": "Câu rủ đi hội", "audio": "" },
+              { "word": "Nắt hạt Then mí", "meaning": "thích hát Then không?", "description": "Câu hỏi sở thích", "audio": "" },
+              { "word": "Cần dú tầ'ư", "meaning": "người ở đâu?", "description": "Câu hỏi quê quán/nơi ở", "audio": "" },
+              { "word": "Nòn bắn", "meaning": "ngủ chưa?", "description": "Câu hỏi thăm trước khi ngủ", "audio": "" },
+              { "word": "Hắt lăng", "meaning": "làm gì?", "description": "Câu hỏi đang làm gì", "audio": "" },
+              { "word": "Lục báo pây đông à?", "meaning": "Con trai đi rừng à?", "description": "Câu hỏi thăm", "audio": "" },
+              { "word": "Pi noọng kin piều tỉ cần nâ'ư?", "meaning": "Anh em ăn tối với ai?", "description": "Câu hỏi thăm bữa ăn", "audio": "" },
+              { "word": "Cáy xáu pất dú lậu bấu?", "meaning": "Gà với vịt ở trong chuồng chưa?", "description": "Câu hỏi thăm sinh hoạt", "audio": "" },
+              { "word": "Vằn nảy đảng lai", "meaning": "hôm nay lạnh quá", "description": "Câu cảm thán về thời tiết", "audio": "" },
+              { "word": "Bứa lai ố", "meaning": "hôm nay buồn quá", "description": "Câu cảm thán bộc lộ cảm xúc", "audio": "" },
+              { "word": "Pi noọng choi căn hả!", "meaning": "Anh em giúp nhau nhé!", "description": "Lời dặn dò khuyên bảo", "audio": "" },
+              { "word": "Điếp pi noọng lai ố.", "meaning": "Yêu thương anh em nhiều lắm.", "description": "Câu bày tỏ tình cảm", "audio": "" },
+              { "word": "Nòn đắc hả", "meaning": "ngủ ngon nhé", "description": "Lời chúc ngủ ngon", "audio": "" },
+              { "word": "Thàng pây tùng dú hâ'ư", "meaning": "đường đi hội ở đâu?", "description": "Câu hỏi đường", "audio": "" },
+              { "word": "Mà tham bán nưng", "meaning": "về hỏi một cái?", "description": "Câu nói nấn ná hỏi thăm", "audio": "" },
+              { "word": "Thả íng hả", "meaning": "đợi tí nhá", "description": "Câu bảo chờ đợi một chút", "audio": "" },
+              { "word": "Đay slao, đay báo", "meaning": "đẹp trai, xinh gái", "description": "Câu khen ngợi", "audio": "" }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ];
